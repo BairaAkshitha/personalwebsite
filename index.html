@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Akshitha Baira | AI Engineer • ML Engineer</title>
+  <title>Akshitha Baira | Gen AI Engineer • ML Engineer</title>
 
-  <meta name="description" content="Akshitha Baira — AI/ML Engineer specializing in Deep Learning, Generative AI, LLM systems, and medical imaging projects (Diffusion, U-Net).">
+  <meta name="description" content="Akshitha Baira — Gen AI Engineer and ML Engineer specializing in deep learning, diffusion models, LLM systems, and production-ready ML pipelines.">
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#0b1220" />
 
@@ -24,8 +24,6 @@
       --muted:#b9c2da;
       --accent:#7c5cff;
       --accent2:#4dd5ff;
-      --good:#34d399;
-      --warn:#fbbf24;
       --shadow: 0 20px 70px rgba(0,0,0,.35);
       --radius: 18px;
     }
@@ -110,7 +108,7 @@
       color: var(--text);
     }
 
-    /* ===== Simple nav (optional) ===== */
+    /* ===== Nav ===== */
     .nav{
       padding: 12px 0 0;
       margin-bottom: 10px;
@@ -142,18 +140,11 @@
       opacity:.35;
       filter:saturate(1.1) contrast(1.05);
       background:
-        linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.60)),
+        linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.62)),
         url("https://source.unsplash.com/nPpQprSfKUI/1600x900");
       background-size: cover;
       background-position: center;
       border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 16px;
-      align-items:start;
     }
 
     .card{
@@ -180,10 +171,6 @@
       font-size: clamp(28px, 3.7vw, 46px);
       line-height:1.12;
       letter-spacing: -0.5px;
-    }
-
-    .hello{
-      font-weight: 900;
     }
 
     .name{
@@ -242,7 +229,31 @@
       white-space:nowrap;
     }
 
-    /* ===== Experience deep blocks ===== */
+    /* ===== Education logo watermark ===== */
+    .edu-card{
+      position:relative;
+      overflow:hidden;
+    }
+    .edu-card::before{
+      content:"";
+      position:absolute;
+      inset:-30px;
+      background-repeat:no-repeat;
+      background-position:right 18px center;
+      background-size: 220px auto;
+      opacity:.08;
+      filter: grayscale(100%);
+      pointer-events:none;
+    }
+    .edu-yu::before{
+      background-image:url("https://upload.wikimedia.org/wikipedia/commons/3/3b/Yeshiva_univ_logo.png");
+    }
+    .edu-mgu::before{
+      background-image:url("https://upload.wikimedia.org/wikipedia/en/thumb/a/ad/Mahatma_Gandhi_University%2C_Kerala_Logo.svg/250px-Mahatma_Gandhi_University%2C_Kerala_Logo.svg.png");
+      background-size: 180px auto;
+    }
+
+    /* ===== Experience ===== */
     .role{
       padding: 18px;
       border-radius: var(--radius);
@@ -260,30 +271,8 @@
     .role .meta{color: var(--muted); font-size: 13px}
     .bullets{margin: 10px 0 0; padding-left: 18px; color: var(--muted)}
     .bullets li{margin-bottom: 8px}
-    .impact{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top: 10px;
-    }
-    .metric{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(52,211,153,.10);
-      color: #d6ffe9;
-      font-size: 13px;
-      font-weight: 800;
-    }
-    .metric.warn{
-      background: rgba(251,191,36,.10);
-      color: #fff2cc;
-    }
 
-    /* ===== Projects with image + achievements ===== */
+    /* ===== Projects ===== */
     .project{
       overflow:hidden;
       border-radius: var(--radius);
@@ -292,7 +281,7 @@
       box-shadow: var(--shadow);
     }
     .project-img{
-      height: 160px;
+      height: 170px;
       background-size: cover;
       background-position: center;
       border-bottom: 1px solid rgba(255,255,255,.10);
@@ -346,18 +335,17 @@
 
     /* ===== Responsive ===== */
     @media (max-width: 980px){
-      .hero-grid{grid-template-columns: 1fr}
       .mini-grid{grid-template-columns: 1fr}
       .two,.three{grid-template-columns: 1fr}
-      .strip-inner{gap:10px}
       .pill{font-size:12px}
       .btn{font-size:13px}
+      .edu-card::before{background-position:center; opacity:.06}
     }
   </style>
 </head>
 
 <body>
-  <!-- TOP: Contact + Location + Resume button (as you requested) -->
+  <!-- TOP: Contact + Location + Resume button -->
   <div class="topstrip">
     <div class="container">
       <div class="strip-inner">
@@ -374,7 +362,9 @@
           <a class="pill" href="https://github.com/BairaAkshitha" target="_blank" rel="noopener">
             <i class="fa-brands fa-github"></i> GitHub
           </a>
-          <a class="pill" href="https://www.researchgate.net/profile/Akshitha-Bair=" target="_blank" rel="noopener">
+
+          <!-- ✅ Updated ResearchGate link -->
+          <a class="pill" href="https://www.researchgate.net/profile/Akshitha-Baira" target="_blank" rel="noopener">
             <i class="fa-brands fa-researchgate"></i> ResearchGate
           </a>
 
@@ -385,7 +375,6 @@
         </div>
       </div>
 
-      <!-- Small navigation (optional but helpful) -->
       <div class="nav">
         <a href="#summary">Summary</a>
         <a href="#education">Education</a>
@@ -400,19 +389,19 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg" aria-hidden="true"></div>
-    <div class="container hero-grid">
+    <div class="container">
       <div class="card">
-        <div class="kicker">AI Engineer • Machine Learning Engineer • Generative AI</div>
+        <!-- ✅ Replace Generative AI with Gen AI Engineer -->
+        <div class="kicker">Gen AI Engineer • Machine Learning Engineer • AI Engineer</div>
 
-        <!-- Greeting first, name highlighted (your requirement) -->
-        <h1 class="hello">
-          Hi, hello 👋 I’m <span class="name">Akshitha Baira</span>
-        </h1>
+        <!-- ✅ ONLY: Hello I am Akshitha -->
+        <h1>Hello, I’m <span class="name">Akshitha Baira</span></h1>
 
+        <!-- ✅ short self-description -->
         <p class="lead">
-          I build production-ready AI systems and research-grade deep learning models — from data pipelines and evaluation
-          to scalable inference. My work spans <b>Generative AI (Diffusion, LLMs/RAG)</b>, <b>medical imaging</b>, and
-          <b>end-to-end ML deployment</b>.
+          I’m a Gen AI Engineer and ML Engineer with 3+ years of experience building end-to-end machine learning solutions —
+          from data preparation and modeling to evaluation and deployment. I work on deep learning, NLP/LLM workflows, and
+          medical imaging systems, focusing on measurable impact and clean production delivery.
         </p>
 
         <div class="hero-actions">
@@ -423,73 +412,37 @@
 
         <div class="mini-grid">
           <div class="mini">
-            <span class="label">Top Focus</span>
-            <span class="value">GenAI • Medical Imaging • Production ML</span>
+            <span class="label">Focus</span>
+            <span class="value">GenAI • Deep Learning • Production ML</span>
           </div>
           <div class="mini">
             <span class="label">Strength</span>
-            <span class="value">Experimentation + Evaluation + Deployment</span>
+            <span class="value">Training + Evaluation + Deployment</span>
           </div>
           <div class="mini">
-            <span class="label">Impact Style</span>
-            <span class="value">Measurable outcomes (recall/F1, reliability)</span>
+            <span class="label">Location</span>
+            <span class="value">New Jersey, USA</span>
           </div>
-        </div>
-      </div>
-
-      <!-- Right highlights -->
-      <div class="card">
-        <div class="section-head">
-          <h2 style="margin:0;font-size:18px">Quick Highlights</h2>
-          <p class="small muted">The fastest way for a recruiter to understand your impact.</p>
-        </div>
-
-        <div class="impact">
-          <span class="metric"><i class="fa-solid fa-arrow-trend-up"></i> +15% Recall</span>
-          <span class="metric"><i class="fa-solid fa-bullseye"></i> +12% F1</span>
-          <span class="metric warn"><i class="fa-solid fa-chart-line"></i> R² ≈ 0.97</span>
-        </div>
-
-        <p class="muted mt12" style="margin-bottom:0">
-          Experienced with PyTorch, TensorFlow, Hugging Face, FastAPI, MLflow, Docker, AWS, SQL/PostgreSQL, MongoDB.
-        </p>
-
-        <div class="tags mt12">
-          <span class="tag">Diffusion Models</span>
-          <span class="tag">LLMs / RAG</span>
-          <span class="tag">U-Net Segmentation</span>
-          <span class="tag">FastAPI</span>
-          <span class="tag">MLOps Basics</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SUMMARY -->
+  <!-- PROFESSIONAL SUMMARY -->
   <section id="summary">
     <div class="container">
       <div class="section-head">
         <h2>Professional Summary</h2>
-        <p>A clear story of what you do — written in a recruiter-friendly way.</p>
+        <p>One clear block (resume-style), short and recruiter-friendly.</p>
       </div>
 
-      <div class="grid two">
-        <div class="card">
-          <h3>What I build</h3>
-          <p>
-            I design AI solutions that go from idea to production: data preparation, model training, evaluation,
-            and deployment. I focus on high-impact ML systems, including risk scoring pipelines, LLM-driven document workflows,
-            and diffusion models for radiotherapy dose prediction.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>How I deliver results</h3>
-          <p>
-            I work with strong experimentation and metrics. That means: class-wise error analysis, threshold calibration,
-            robust evaluation (F1/ROC-AUC/MAE/RMSE), and building reliable inference workflows (batch inference + lightweight serving).
-          </p>
-        </div>
+      <!-- ✅ Only one block -->
+      <div class="card">
+        <p style="margin:0; color: var(--muted);">
+          Gen AI Engineer and ML Engineer with strong experience in building scalable ML systems and deep learning models.
+          Skilled in model development, feature engineering, experimentation, and performance evaluation (F1/ROC-AUC/MAE/RMSE),
+          with hands-on experience delivering production-ready inference pipelines and API-based integrations.
+        </p>
       </div>
     </div>
   </section>
@@ -499,39 +452,29 @@
     <div class="container">
       <div class="section-head">
         <h2>Education</h2>
-        <p>Your academic background (clean and easy to scan).</p>
+        <p>Clean and simple (tags removed), with university logo watermark.</p>
       </div>
 
       <div class="grid two">
-        <div class="card">
+        <div class="card edu-card edu-yu">
           <h3>Yeshiva University — M.S. Artificial Intelligence</h3>
-          <p class="muted small">New York, USA • Jan 2024 – Dec 2025</p>
-          <div class="tags">
-            <span class="tag">Deep Learning</span>
-            <span class="tag">NLP</span>
-            <span class="tag">AWS</span>
-          </div>
+          <p class="muted small" style="margin:0">New York, USA • Jan 2024 – Dec 2025</p>
         </div>
 
-        <div class="card">
+        <div class="card edu-card edu-mgu">
           <h3>Mahatma Gandhi University — B.Tech Computer Science</h3>
-          <p class="muted small">India • Aug 2019 – May 2023</p>
-          <div class="tags">
-            <span class="tag">Computer Science</span>
-            <span class="tag">Programming</span>
-            <span class="tag">Foundations</span>
-          </div>
+          <p class="muted small" style="margin:0">India • Aug 2019 – May 2023</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- EXPERIENCE (deep) -->
+  <!-- EXPERIENCE -->
   <section id="experience">
     <div class="container">
       <div class="section-head">
         <h2>Work Experience</h2>
-        <p>Deep, clear explanations of what you did — with measurable impact.</p>
+        <p>Technologies and skills are highlighted clearly.</p>
       </div>
 
       <div class="grid" style="gap:14px">
@@ -541,34 +484,32 @@
               <h3>AI/ML Engineer — Prevail Infotech Inc</h3>
               <div class="meta">Utah, USA • Jul 2024 – Present</div>
             </div>
-            <div class="impact">
-              <span class="metric"><i class="fa-solid fa-arrow-trend-up"></i> +15% Recall</span>
-              <span class="metric"><i class="fa-solid fa-server"></i> Scalable Inference</span>
-            </div>
           </div>
 
           <ul class="bullets">
             <li>
-              Built end-to-end AI risk scoring pipelines, translating business goals into model-ready features, training workflows,
-              and reliable scoring outputs.
+              Built end-to-end ML pipelines using <b>Python</b>, <b>Scikit-learn</b>, and structured experimentation
+              (feature selection, model comparison, threshold tuning).
             </li>
             <li>
-              Ran structured experiments (feature selection, model comparison, threshold tuning) and improved recall by <b>~15%</b>
-              on critical classes while maintaining balance with precision.
+              Improved model performance using <b>evaluation metrics</b> (Precision/Recall/F1, ROC-AUC) and
+              <b>class-wise error analysis</b> to increase reliability on critical classes.
             </li>
             <li>
-              Implemented explainability + class-wise diagnostics to improve transparency and stakeholder trust.
+              Implemented scalable inference workflows and integrations using <b>FastAPI</b>, <b>Docker</b>, and <b>Git</b>.
             </li>
             <li>
-              Delivered scalable batch inference and lightweight serving workflows to improve reliability and internal response times.
+              Worked with <b>SQL</b>/<b>PostgreSQL</b> data extraction and preprocessing for model-ready datasets.
             </li>
           </ul>
 
           <div class="tags">
-            <span class="tag">Experimentation</span>
-            <span class="tag">Threshold Calibration</span>
-            <span class="tag">Explainability</span>
-            <span class="tag">Batch Inference</span>
+            <span class="tag">Python</span>
+            <span class="tag">Scikit-learn</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Docker</span>
+            <span class="tag">SQL / PostgreSQL</span>
+            <span class="tag">Model Evaluation</span>
           </div>
         </div>
 
@@ -578,23 +519,18 @@
               <h3>Machine Learning Engineer — Asics Technologies</h3>
               <div class="meta">Hyderabad, India • Jun 2022 – Dec 2023</div>
             </div>
-            <div class="impact">
-              <span class="metric"><i class="fa-solid fa-bullseye"></i> +12% F1</span>
-              <span class="metric"><i class="fa-solid fa-gears"></i> Pipelines</span>
-            </div>
           </div>
 
           <ul class="bullets">
             <li>
-              Developed and optimized ML models (LogReg, Random Forest, XGBoost) for real datasets (50K+ records),
-              improving validation F1 by <b>~12%</b> through feature engineering and hyperparameter tuning.
+              Developed ML models using <b>Logistic Regression</b>, <b>Random Forest</b>, and <b>XGBoost</b>,
+              improving performance through <b>feature engineering</b> and <b>hyperparameter tuning</b>.
             </li>
             <li>
-              Built clean pipelines: ingestion → preprocessing → feature transformations → training → evaluation,
-              using strong metrics (F1, ROC-AUC, MAE/RMSE).
+              Built reusable training/evaluation pipelines with <b>Pandas</b>, <b>NumPy</b>, and metrics (F1, ROC-AUC, MAE/RMSE).
             </li>
             <li>
-              Automated training/inference workflows and created FastAPI endpoints for internal model testing and integration.
+              Created internal API endpoints using <b>FastAPI</b> for model testing and integration.
             </li>
           </ul>
 
@@ -602,7 +538,8 @@
             <span class="tag">XGBoost</span>
             <span class="tag">Feature Engineering</span>
             <span class="tag">FastAPI</span>
-            <span class="tag">Evaluation</span>
+            <span class="tag">Pandas / NumPy</span>
+            <span class="tag">Evaluation Metrics</span>
           </div>
         </div>
 
@@ -612,77 +549,74 @@
               <h3>Machine Learning Intern — Octagen Software Solutions</h3>
               <div class="meta">Hyderabad, India • May 2022 – Jun 2022</div>
             </div>
-            <div class="impact">
-              <span class="metric warn"><i class="fa-solid fa-chart-line"></i> R² ≈ 0.97</span>
-            </div>
           </div>
 
           <ul class="bullets">
             <li>
-              Built an AQI forecasting system: data cleaning, feature engineering, regression modeling, validation, and residual analysis.
-            </li>
-            <li>
-              Achieved strong prediction performance with <b>R² ≈ 0.97</b> using Scikit-learn and Pandas.
+              Built an AQI forecasting workflow using <b>Python</b>, <b>Pandas</b>, and <b>Scikit-learn</b>,
+              including data cleaning, feature creation, and regression evaluation.
             </li>
           </ul>
 
           <div class="tags">
-            <span class="tag">Regression</span>
+            <span class="tag">Python</span>
             <span class="tag">Scikit-learn</span>
-            <span class="tag">Time Series / Forecasting</span>
+            <span class="tag">Regression</span>
+            <span class="tag">Forecasting</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS (clear + achievements) -->
+  <!-- PROJECTS -->
   <section id="projects">
     <div class="container">
       <div class="section-head">
         <h2>Projects</h2>
-        <p>Clear explanations + highlighted achievements (best section for hiring managers).</p>
+        <p>Pictures added + technologies highlighted.</p>
       </div>
 
       <div class="grid three">
         <article class="project">
+          <!-- (Google-friendly) public image source -->
           <div class="project-img" style="background-image:
-            linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.75)),
-            url('https://source.unsplash.com/JUW7WZMOTDU/1200x800');"></div>
+            linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.78)),
+            url('https://source.unsplash.com/BDKid0yJcAk/1200x800');"></div>
           <div class="project-body">
             <h3>Dose Prediction in Radiotherapy (DoseDiff + CTMamba)</h3>
             <p>
-              Enhanced diffusion-based 3D dose prediction by refining noise schedules, denoising steps, and loss functions,
-              focusing on clinically realistic outputs and DVH consistency.
+              Improved diffusion-based dose prediction by refining noise schedules and denoising behavior using <b>PyTorch</b>.
+              Focused on evaluation stability and clinically realistic outputs.
             </p>
             <ul class="ach">
-              <li><b>Generative AI</b>: diffusion-based sampling and denoising improvements.</li>
-              <li><b>Medical imaging</b>: improved dose realism and stability for evaluation.</li>
-              <li><b>Research engineering</b>: architecture refinement using hybrid encoder concepts.</li>
+              <li><b>Tech:</b> PyTorch, diffusion training, denoising, evaluation workflows</li>
+              <li><b>Domain:</b> Medical imaging (radiotherapy dose prediction)</li>
+              <li><b>Output:</b> More stable predictions with stronger consistency in evaluation</li>
             </ul>
             <div class="tags">
               <span class="tag">PyTorch</span>
               <span class="tag">Diffusion</span>
-              <span class="tag">OpenKBP</span>
-              <span class="tag">DVH</span>
+              <span class="tag">Medical Imaging</span>
+              <span class="tag">Evaluation</span>
             </div>
           </div>
         </article>
 
         <article class="project">
           <div class="project-img" style="background-image:
-            linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.75)),
+            linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.78)),
             url('https://source.unsplash.com/Srgu49rAgDI/1200x800');"></div>
           <div class="project-body">
             <h3>Research Paper Summarizer (Transformers + FastAPI)</h3>
             <p>
-              Built an NLP system to summarize long documents using chunking and transformer-based summarization, exposed via FastAPI.
-              Designed for clean outputs that can be used directly in reports and presentations.
+              Built an NLP system for summarizing long documents using <b>Transformers</b> and <b>Hugging Face</b>,
+              exposed via <b>FastAPI</b> for easy use.
             </p>
             <ul class="ach">
-              <li><b>API-first</b>: FastAPI endpoints for easy integration.</li>
-              <li><b>Long document handling</b>: chunking pipeline for large PDFs/text.</li>
-              <li><b>Readable outputs</b>: summary + paraphrase flow for fast comprehension.</li>
+              <li><b>Tech:</b> Hugging Face Transformers, Python, FastAPI</li>
+              <li><b>Approach:</b> chunking + clean summary outputs</li>
+              <li><b>Result:</b> faster understanding of long research documents</li>
             </ul>
             <div class="tags">
               <span class="tag">Transformers</span>
@@ -695,17 +629,17 @@
 
         <article class="project">
           <div class="project-img" style="background-image:
-            linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.75)),
-            url('https://source.unsplash.com/nPpQprSfKUI/1200x800');"></div>
+            linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.78)),
+            url('https://source.unsplash.com/7F65HDP0-E0/1200x800');"></div>
           <div class="project-body">
             <h3>Brain Tumor Segmentation (U-Net)</h3>
             <p>
-              Built a full segmentation pipeline for MRI scans, covering preprocessing, augmentation, training, and evaluation with Dice/IoU.
+              Implemented an end-to-end segmentation pipeline using <b>U-Net</b> with strong evaluation using <b>Dice/IoU</b>.
             </p>
             <ul class="ach">
-              <li><b>U-Net pipeline</b>: end-to-end training + evaluation.</li>
-              <li><b>Metrics</b>: Dice / IoU used for clinical segmentation quality.</li>
-              <li><b>Generalization</b>: augmentation to improve robustness.</li>
+              <li><b>Tech:</b> PyTorch/TensorFlow, U-Net, augmentation</li>
+              <li><b>Metrics:</b> Dice score and IoU</li>
+              <li><b>Focus:</b> robustness through preprocessing and augmentation</li>
             </ul>
             <div class="tags">
               <span class="tag">U-Net</span>
@@ -727,84 +661,71 @@
         </div>
 
         <div class="card">
-          <h3>Want to add your real screenshots?</h3>
+          <h3>Want your real screenshots here?</h3>
           <p class="muted" style="margin:0">
-            Upload 3–5 screenshots (dose maps / DVH plot / summarizer UI / segmentation overlay) and I’ll replace these images
-            with your real results inside the cards.
+            Upload 3–5 screenshots (dose maps/DVH, summarizer UI, segmentation overlay) and I’ll replace these images
+            with your real results for a strong “proof of work” look.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS (colored one-by-one) -->
+  <!-- SKILLS -->
   <section id="skills">
     <div class="container">
       <div class="section-head">
         <h2>Skills</h2>
-        <p>Listed one-by-one with colored backgrounds (as you requested).</p>
+        <p>Skills listed one-by-one with colored background.</p>
       </div>
 
       <div class="grid" style="gap:12px">
         <div class="skillrow s1">
-          <div><b>Python</b><div class="small muted">Data processing, ML pipelines, automation</div></div>
+          <div><b>Python</b><div class="small muted">ML pipelines, automation, data processing</div></div>
           <div class="level">Advanced</div>
         </div>
-
         <div class="skillrow s2">
           <div><b>Machine Learning</b><div class="small muted">Feature engineering, model selection, evaluation</div></div>
           <div class="level">Advanced</div>
         </div>
-
         <div class="skillrow s3">
-          <div><b>Deep Learning</b><div class="small muted">CNNs, U-Net, training optimization</div></div>
+          <div><b>Deep Learning</b><div class="small muted">CNN, U-Net, training optimization</div></div>
           <div class="level">Advanced</div>
         </div>
-
         <div class="skillrow s4">
-          <div><b>Generative AI</b><div class="small muted">Diffusion models, denoising, sampling improvements</div></div>
+          <div><b>GenAI (Diffusion / LLM workflows)</b><div class="small muted">Diffusion improvements, document NLP systems</div></div>
           <div class="level">Strong</div>
         </div>
-
         <div class="skillrow s5">
-          <div><b>LLMs / RAG / NLP</b><div class="small muted">Chunking, summarization, prompt workflows</div></div>
+          <div><b>Hugging Face / Transformers</b><div class="small muted">Summarization, pipelines, inference</div></div>
           <div class="level">Strong</div>
         </div>
-
         <div class="skillrow s1">
-          <div><b>PyTorch / TensorFlow</b><div class="small muted">Model training, evaluation, experiments</div></div>
+          <div><b>FastAPI</b><div class="small muted">ML/GenAI app APIs</div></div>
           <div class="level">Strong</div>
         </div>
-
         <div class="skillrow s2">
-          <div><b>Hugging Face</b><div class="small muted">Transformers, pipelines, inference</div></div>
-          <div class="level">Strong</div>
-        </div>
-
-        <div class="skillrow s3">
-          <div><b>FastAPI</b><div class="small muted">APIs for ML/LLM apps</div></div>
-          <div class="level">Strong</div>
-        </div>
-
-        <div class="skillrow s4">
-          <div><b>Docker + MLflow</b><div class="small muted">Reproducibility, experiment tracking</div></div>
+          <div><b>Docker / MLflow</b><div class="small muted">Reproducibility, experiment tracking</div></div>
           <div class="level">Good</div>
         </div>
-
-        <div class="skillrow s5">
-          <div><b>AWS + Databases</b><div class="small muted">PostgreSQL, MongoDB, ETL basics</div></div>
+        <div class="skillrow s3">
+          <div><b>SQL / PostgreSQL / MongoDB</b><div class="small muted">Data extraction and storage basics</div></div>
+          <div class="level">Good</div>
+        </div>
+        <div class="skillrow s4">
+          <div><b>AWS</b><div class="small muted">Cloud basics for ML workflows</div></div>
           <div class="level">Good</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CERTIFICATIONS (at the end) -->
+  <!-- CERTIFICATIONS -->
   <section id="certifications">
     <div class="container">
       <div class="section-head">
         <h2>Certifications</h2>
-        <p>Placed at the end (exactly as you asked).</p>
+        <p>Placed at the end.</p>
       </div>
 
       <div class="grid two">
@@ -819,7 +740,7 @@
         <div class="tags">
           <a class="tag" href="https://www.linkedin.com/in/akshitha-baira-48a11b345/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
           <a class="tag" href="https://github.com/BairaAkshitha" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
-          <a class="tag" href="https://www.researchgate.net/profile/Akshitha-Bair=" target="_blank" rel="noopener"><i class="fa-brands fa-researchgate"></i> ResearchGate</a>
+          <a class="tag" href="https://www.researchgate.net/profile/Akshitha-Baira" target="_blank" rel="noopener"><i class="fa-brands fa-researchgate"></i> ResearchGate</a>
           <a class="tag" href="https://drive.google.com/file/d/1ByXrMGPXK9C1XtlbejXLlRnDyM9Ty6KU/view?usp=drive_link" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> Resume</a>
         </div>
       </div>
@@ -829,7 +750,7 @@
   <footer>
     <div class="container foot">
       <div>© <span id="year"></span> Akshitha Baira</div>
-      <div>AI Engineer • ML Engineer • Generative AI</div>
+      <div>Gen AI Engineer • ML Engineer • AI Engineer</div>
     </div>
   </footer>
 
