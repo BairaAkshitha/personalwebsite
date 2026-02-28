@@ -7,37 +7,37 @@
 
   <meta name="description" content="Akshitha Baira — Gen AI Engineer and ML Engineer building scalable ML systems, deep learning models, and production-ready pipelines." />
   <meta name="robots" content="index,follow" />
-  <meta name="theme-color" content="#f7f7ff" />
+  <meta name="theme-color" content="#dfe6f2" />
 
-  <!-- Icons -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
     :root{
-      --bg1:#f6f7ff;
-      --bg2:#eef8ff;
-      --bg3:#fff6ef;
+      /* ✅ less-bright, professional cool-grey theme (not dark, not bright) */
+      --bg1:#e9edf5;
+      --bg2:#dde4f0;
+      --bg3:#e6ecf7;
 
-      --text:#0f172a;
-      --muted:#475569;
+      --text:#111827;
+      --muted:#4b5563;
 
-      --card:#ffffff;
-      --card2:#fbfbff;
-      --line: rgba(15,23,42,.12);
-      --shadow: 0 18px 60px rgba(2,6,23,.12);
+      --card:#f8f9fc;
+      --card2:#eef2f8;
+      --line: rgba(0,0,0,.10);
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
 
-      --accent:#6d5efc;
-      --accent2:#2cc6ff;
-      --radius: 18px;
+      --accent:#5b6cf0;
+      --accent2:#4ea8de;
+      --radius: 16px;
 
-      /* badge colors */
-      --b1:#e9e6ff;
-      --b2:#e0f2fe;
-      --b3:#dcfce7;
-      --b4:#fff7ed;
-      --b5:#ffe4e6;
-      --b6:#f1f5f9;
+      /* ✅ softer badge colors */
+      --b1:#dde3ff;
+      --b2:#d7ecf7;
+      --b3:#dff5e6;
+      --b4:#f9eadb;
+      --b5:#f7dde3;
+      --b6:#e5e9f2;
     }
 
     *{box-sizing:border-box}
@@ -47,11 +47,9 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color:var(--text);
       line-height:1.65;
-      background:
-        radial-gradient(900px 550px at 12% -10%, rgba(109,94,252,.22), transparent 55%),
-        radial-gradient(800px 520px at 88% 10%, rgba(44,198,255,.20), transparent 52%),
-        radial-gradient(700px 500px at 50% 110%, rgba(255,162,91,.18), transparent 55%),
-        linear-gradient(180deg, var(--bg1), var(--bg2) 45%, var(--bg3));
+
+      /* ✅ remove very bright glow, keep clean gradient */
+      background: linear-gradient(180deg, var(--bg1), var(--bg2) 60%, var(--bg3));
       overflow-x:hidden;
     }
 
@@ -70,7 +68,7 @@
       position:sticky;
       top:0;
       z-index:999;
-      background: rgba(255,255,255,.72);
+      background: rgba(248,249,252,.82);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--line);
     }
@@ -90,7 +88,7 @@
       padding: 8px 12px;
       border-radius: 999px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.65);
+      background: rgba(248,249,252,.85);
       font-size: 13px;
       color: var(--muted);
       white-space:nowrap;
@@ -109,13 +107,14 @@
     }
     .btn:hover{transform: translateY(-1px)}
     .btn-primary{
-      background: linear-gradient(135deg, var(--accent), #7d8cff);
-      box-shadow: 0 14px 34px rgba(109,94,252,.18);
+      /* ✅ softer shadow + less “glow” */
+      background: linear-gradient(135deg, var(--accent), #667eea);
+      box-shadow: 0 6px 18px rgba(91,108,240,.18);
       color:#fff;
     }
     .btn-ghost{
-      background: rgba(255,255,255,.7);
-      border-color: var(--line);
+      background: rgba(248,249,252,.85);
+      border: 1px solid var(--line);
       color: var(--text);
     }
 
@@ -136,7 +135,7 @@
     .nav a:hover{
       color: var(--text);
       border-color: var(--line);
-      background: rgba(255,255,255,.65);
+      background: rgba(248,249,252,.85);
     }
 
     /* ===== Cards / section ===== */
@@ -155,7 +154,6 @@
       font-size: 22px;
       letter-spacing: -0.2px;
     }
-    .section-head p{margin:0; color: var(--muted)}
 
     /* ===== Hero ===== */
     .hero{padding: 34px 0 20px}
@@ -163,7 +161,7 @@
       border-radius: 22px;
       border: 1px solid var(--line);
       background:
-        linear-gradient(135deg, rgba(109,94,252,.14), rgba(44,198,255,.12)),
+        linear-gradient(135deg, rgba(91,108,240,.10), rgba(78,168,222,.10)),
         url("https://media.licdn.com/dms/image/v2/D5612AQFFYxwi-49jYg/article-cover_image-shrink_600_2000/B56ZcMot_JHEAQ-/0/1748263706808?e=2147483647&v=beta&t=sMAC8_0sRhs6lRSjm6wcThC9bcmH4jwWVX4Ks0AJMgM");
       background-size: cover;
       background-position: center;
@@ -172,7 +170,8 @@
     }
     .hero-overlay{
       position:absolute; inset:0;
-      background: linear-gradient(90deg, rgba(255,255,255,.88), rgba(255,255,255,.70), rgba(255,255,255,.40));
+      /* ✅ reduce brightness strongly (your request) */
+      background: rgba(248,249,252,.58);
     }
     .hero-inner{position:relative; padding: 26px}
 
@@ -181,7 +180,7 @@
       padding: 6px 12px;
       border-radius: 999px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.8);
+      background: rgba(248,249,252,.92);
       color: var(--muted);
       font-size: 13px;
       margin-bottom: 12px;
@@ -196,7 +195,7 @@
       display:inline-block;
       padding: 0 10px;
       border-radius: 14px;
-      background: linear-gradient(135deg, rgba(109,94,252,.18), rgba(44,198,255,.14));
+      background: linear-gradient(135deg, rgba(91,108,240,.16), rgba(78,168,222,.12));
       border: 1px solid var(--line);
     }
     .lead{
@@ -224,19 +223,19 @@
       background-repeat:no-repeat;
       background-position:right 16px center;
       background-size: 220px auto;
-      opacity:.10;
+      opacity:.08;               /* ✅ reduced so it doesn't look too bright */
       filter: grayscale(100%);
       pointer-events:none;
     }
     .edu-yu::before{
-      background-image:url("https://www.giftoflife.org/data/image/dcbanners/D014DA6B852E3FC6343EF1B79805AE5A.jpg");
+      background-image:url("https://m-production.myliaison.com/school_images/Yeshiva%20University.webp");
     }
     .edu-mgu::before{
       background-image:url("https://upload.wikimedia.org/wikipedia/en/1/11/Mahatma_Gandhi_University%2C_Nalgonda_logo.png");
       background-size: 180px auto;
     }
 
-    /* ===== Badges (colored tech backgrounds) ===== */
+    /* ===== Badges ===== */
     .badges{display:flex; gap:8px; flex-wrap:wrap; margin-top: 10px}
     .badge{
       display:inline-flex;
@@ -246,7 +245,7 @@
       border-radius: 999px;
       border: 1px solid var(--line);
       font-size: 12px;
-      color: #0f172a;
+      color: #111827;
       background: var(--b6);
       white-space:nowrap;
     }
@@ -268,7 +267,7 @@
     .meta{color: var(--muted); font-size: 13px}
     .bullets{margin: 10px 0 0; padding-left: 18px; color: var(--muted)}
     .bullets li{margin-bottom: 8px}
-    .bullets b{color: #0f172a}
+    .bullets b{color: #111827}
 
     /* ===== Projects ===== */
     .project{
@@ -290,31 +289,11 @@
     .ach{margin: 10px 0 0; padding-left: 18px; color: var(--muted); font-size: 14px}
     .ach li{margin-bottom: 8px}
 
-    /* ===== Skills rows ===== */
-    .skillrow{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding: 14px 16px;
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      background: rgba(255,255,255,.8);
-    }
-    .skillrow b{font-size: 14px}
-    .skillrow .level{font-weight: 900}
-    .s1{background: linear-gradient(135deg, rgba(109,94,252,.14), rgba(255,255,255,.85));}
-    .s2{background: linear-gradient(135deg, rgba(44,198,255,.14), rgba(255,255,255,.85));}
-    .s3{background: linear-gradient(135deg, rgba(34,197,94,.14), rgba(255,255,255,.85));}
-    .s4{background: linear-gradient(135deg, rgba(251,146,60,.14), rgba(255,255,255,.85));}
-    .s5{background: linear-gradient(135deg, rgba(244,63,94,.12), rgba(255,255,255,.85));}
-
     /* ===== Footer ===== */
     footer{
       padding: 20px 0;
       border-top: 1px solid var(--line);
-      background: rgba(255,255,255,.65);
+      background: rgba(248,249,252,.75);
       color: var(--muted);
     }
     .foot{
@@ -327,17 +306,16 @@
 
     @media (max-width: 980px){
       .two,.three{grid-template-columns: 1fr}
-      .edu-card::before{background-position:center; opacity:.08}
+      .edu-card::before{background-position:center; opacity:.06}
       .pill{font-size:12px}
       .btn{font-size:13px}
       .hero-inner{padding: 18px}
-      .hero-overlay{background: linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,255,255,.70));}
+      .hero-overlay{background: rgba(248,249,252,.62);}
     }
   </style>
 </head>
 
 <body>
-  <!-- TOP: Contact + Location + Resume button -->
   <div class="topstrip">
     <div class="container">
       <div class="strip-inner">
@@ -395,8 +373,6 @@
             <a class="btn btn-ghost" href="#experience"><i class="fa-solid fa-briefcase"></i> Work Experience</a>
             <a class="btn btn-ghost" href="#skills"><i class="fa-solid fa-layer-group"></i> Skills</a>
           </div>
-
-          <!-- ✅ Removed Focus/Strength/Location boxes as requested -->
         </div>
       </div>
     </div>
@@ -453,19 +429,10 @@
           <div class="meta">Utah, USA • Jul 2024 – Present</div>
 
           <ul class="bullets">
-            <li>
-              Built end-to-end ML pipelines using <b>Python</b>, <b>Scikit-learn</b>, and structured experimentation
-              (feature selection, model comparison, threshold tuning).
-            </li>
-            <li>
-              Improved model performance using <b>Precision/Recall/F1</b> and <b>ROC-AUC</b>, with class-wise error analysis for reliability.
-            </li>
-            <li>
-              Implemented scalable inference workflows and integrations using <b>FastAPI</b>, <b>Docker</b>, and <b>Git</b>.
-            </li>
-            <li>
-              Worked with <b>SQL</b>/<b>PostgreSQL</b> extraction and preprocessing for model-ready datasets.
-            </li>
+            <li>Built end-to-end ML pipelines using <b>Python</b>, <b>Scikit-learn</b>, and structured experimentation (feature selection, model comparison, threshold tuning).</li>
+            <li>Improved model performance using <b>Precision/Recall/F1</b> and <b>ROC-AUC</b>, with class-wise error analysis for reliability.</li>
+            <li>Implemented scalable inference workflows and integrations using <b>FastAPI</b>, <b>Docker</b>, and <b>Git</b>.</li>
+            <li>Worked with <b>SQL</b>/<b>PostgreSQL</b> extraction and preprocessing for model-ready datasets.</li>
           </ul>
 
           <div class="badges">
@@ -474,7 +441,7 @@
             <span class="badge b3">FastAPI</span>
             <span class="badge b4">Docker</span>
             <span class="badge b5">SQL / PostgreSQL</span>
-            <span class="badge b6">Model Evaluation</span>
+            <span class="badge">Model Evaluation</span>
           </div>
         </div>
 
@@ -483,16 +450,9 @@
           <div class="meta">Hyderabad, India • Jun 2022 – Dec 2023</div>
 
           <ul class="bullets">
-            <li>
-              Developed ML models using <b>Logistic Regression</b>, <b>Random Forest</b>, and <b>XGBoost</b>, improving performance with
-              <b>feature engineering</b> and <b>hyperparameter tuning</b>.
-            </li>
-            <li>
-              Built reusable training/evaluation pipelines with <b>Pandas</b>, <b>NumPy</b>, and metrics (F1, ROC-AUC, MAE/RMSE).
-            </li>
-            <li>
-              Created internal API endpoints using <b>FastAPI</b> for model testing and integration.
-            </li>
+            <li>Developed ML models using <b>Logistic Regression</b>, <b>Random Forest</b>, and <b>XGBoost</b>, improving performance with <b>feature engineering</b> and <b>hyperparameter tuning</b>.</li>
+            <li>Built reusable training/evaluation pipelines with <b>Pandas</b>, <b>NumPy</b>, and metrics (F1, ROC-AUC, MAE/RMSE).</li>
+            <li>Created internal API endpoints using <b>FastAPI</b> for model testing and integration.</li>
           </ul>
 
           <div class="badges">
@@ -501,7 +461,7 @@
             <span class="badge b3">FastAPI</span>
             <span class="badge b4">Pandas / NumPy</span>
             <span class="badge b5">Feature Engineering</span>
-            <span class="badge b6">Evaluation Metrics</span>
+            <span class="badge">Evaluation Metrics</span>
           </div>
         </div>
 
@@ -510,16 +470,14 @@
           <div class="meta">Hyderabad, India • May 2022 – Jun 2022</div>
 
           <ul class="bullets">
-            <li>
-              Built an AQI forecasting workflow using <b>Python</b>, <b>Pandas</b>, and <b>Scikit-learn</b> including cleaning, feature creation, and regression evaluation.
-            </li>
+            <li>Built an AQI forecasting workflow using <b>Python</b>, <b>Pandas</b>, and <b>Scikit-learn</b> including cleaning, feature creation, and regression evaluation.</li>
           </ul>
 
           <div class="badges">
             <span class="badge b1">Python</span>
             <span class="badge b2">Scikit-learn</span>
             <span class="badge b4">Regression</span>
-            <span class="badge b6">Forecasting</span>
+            <span class="badge">Forecasting</span>
           </div>
         </div>
       </div>
@@ -535,166 +493,153 @@
 
       <div class="grid three">
         <article class="project">
-          <div class="project-img" style="background-image:
-            url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR47qkkZBu9F-1weaz9SE1TmOIO32mgWtj1UA&s');"></div>
+          <div class="project-img" style="background-image:url('https://images.unsplash.com/photo-1582719478171-2b2d79b55f38?auto=format&fit=crop&w=1600&q=70');"></div>
           <div class="project-body">
             <h3>Dose Prediction in Radiotherapy (DoseDiff + CTMamba)</h3>
-            <p>
-              Improved diffusion-based dose prediction by refining noise schedules and denoising behavior using <b>PyTorch</b>.
-              Focused on evaluation stability and clinically realistic outputs.
-            </p>
+            <p>Improved diffusion-based dose prediction by refining noise schedules and denoising behavior using <b>PyTorch</b>. Focused on evaluation stability and clinically realistic outputs.</p>
             <ul class="ach">
               <li>Refined diffusion training behavior for improved stability.</li>
               <li>Built evaluation workflow for consistent comparison.</li>
               <li>Focused on medical imaging realism and reliability.</li>
             </ul>
-
             <div class="badges">
               <span class="badge b1">PyTorch</span>
               <span class="badge b2">Diffusion</span>
               <span class="badge b3">Medical Imaging</span>
-              <span class="badge b6">Evaluation</span>
+              <span class="badge">Evaluation</span>
             </div>
           </div>
         </article>
 
         <article class="project">
-          <div class="project-img" style="background-image:
-            url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVdBJgJZL9Rehn8XZ6UKSN2RPRNOn6gs2i0g&s');"></div>
+          <div class="project-img" style="background-image:url('https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=1600&q=70');"></div>
           <div class="project-body">
             <h3>Research Paper Summarizer (Transformers + FastAPI)</h3>
-            <p>
-              Built an NLP system for summarizing long documents using <b>Transformers</b> and <b>Hugging Face</b>, exposed via <b>FastAPI</b>.
-            </p>
+            <p>Built an NLP system for summarizing long documents using <b>Transformers</b> and <b>Hugging Face</b>, exposed via <b>FastAPI</b>.</p>
             <ul class="ach">
               <li>Handled long documents with chunking and clean outputs.</li>
               <li>API-first design for easy usage and integration.</li>
               <li>Optimized for quick comprehension of research content.</li>
             </ul>
-
             <div class="badges">
               <span class="badge b1">Transformers</span>
               <span class="badge b2">Hugging Face</span>
               <span class="badge b3">FastAPI</span>
-              <span class="badge b6">NLP</span>
+              <span class="badge">NLP</span>
             </div>
           </div>
         </article>
 
         <article class="project">
-          <div class="project-img" style="background-image:
-            url('https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41598-020-74419-9/MediaObjects/41598_2020_74419_Fig2_HTML.jpg');"></div>
+          <div class="project-img" style="background-image:url('https://images.unsplash.com/photo-1581092919535-7146e06b4c9a?auto=format&fit=crop&w=1600&q=70');"></div>
           <div class="project-body">
             <h3>Brain Tumor Segmentation (U-Net)</h3>
-            <p>
-              Implemented an end-to-end segmentation pipeline using <b>U-Net</b> with evaluation using <b>Dice/IoU</b>.
-            </p>
+            <p>Implemented an end-to-end segmentation pipeline using <b>U-Net</b> with evaluation using <b>Dice/IoU</b>.</p>
             <ul class="ach">
               <li>End-to-end segmentation pipeline with preprocessing.</li>
               <li>Used Dice/IoU to measure segmentation quality.</li>
               <li>Improved robustness via augmentation.</li>
             </ul>
-
             <div class="badges">
               <span class="badge b1">U-Net</span>
               <span class="badge b2">Computer Vision</span>
               <span class="badge b3">Dice / IoU</span>
-              <span class="badge b6">Medical Imaging</span>
+              <span class="badge">Medical Imaging</span>
             </div>
           </div>
         </article>
       </div>
+
+      <div class="grid two mt16">
+        <div class="card">
+          <h3>Additional Projects</h3>
+          <p class="muted" style="margin:0">
+            • CNN for Dog Heart Image Classification<br/>
+            • Bird Sound Spectrogram Segmentation (U-Net)<br/>
+          </p>
+        </div>
+        <div class="card">
+          <h3>Note</h3>
+          <p class="muted" style="margin:0">
+            If you upload your real project screenshots, I can replace the images above with your real results.
+          </p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- SKILLS -->
-  <!-- SKILLS -->
-<section id="skills">
-  <div class="container">
-    <div class="section-head">
-      <h2>Skills</h2>
-    </div>
+  <section id="skills">
+    <div class="container">
+      <div class="section-head">
+        <h2>Skills</h2>
+      </div>
 
-    <!-- Category 1 -->
-    <div class="card mt12">
-      <h3 style="margin:0 0 10px;">Programming</h3>
-      <div class="badges">
-        <span class="badge b1">Python</span>
-        <span class="badge b2">SQL</span>
-        <span class="badge b3">C</span>
-        <span class="badge b4">C++</span>
-        <span class="badge b5">Java</span>
-        <span class="badge b6">JavaScript</span>
-        <span class="badge b2">HTML</span>
-        <span class="badge b3">CSS</span>
+      <div class="card mt12">
+        <h3 style="margin:0 0 10px;">Programming</h3>
+        <div class="badges">
+          <span class="badge b1">Python</span>
+          <span class="badge b2">SQL</span>
+          <span class="badge b3">C</span>
+          <span class="badge b4">C++</span>
+          <span class="badge b5">Java</span>
+          <span class="badge">JavaScript</span>
+          <span class="badge b2">HTML</span>
+          <span class="badge b3">CSS</span>
+        </div>
+      </div>
+
+      <div class="card mt12">
+        <h3 style="margin:0 0 10px;">AI / ML</h3>
+        <div class="badges">
+          <span class="badge b1">Machine Learning</span>
+          <span class="badge b2">Deep Learning</span>
+          <span class="badge b3">Generative AI</span>
+          <span class="badge b4">LLMs</span>
+          <span class="badge b5">Model Fine-tuning</span>
+          <span class="badge">RAG Pipelines</span>
+          <span class="badge b2">NLP</span>
+          <span class="badge b3">Computer Vision</span>
+          <span class="badge b4">Prompt Engineering</span>
+        </div>
+      </div>
+
+      <div class="card mt12">
+        <h3 style="margin:0 0 10px;">Libraries & Frameworks</h3>
+        <div class="badges">
+          <span class="badge b1">PyTorch</span>
+          <span class="badge b2">TensorFlow</span>
+          <span class="badge b3">Scikit-learn</span>
+          <span class="badge b4">Hugging Face</span>
+          <span class="badge b5">LangChain</span>
+        </div>
+      </div>
+
+      <div class="card mt12">
+        <h3 style="margin:0 0 10px;">Tools / Analytics</h3>
+        <div class="badges">
+          <span class="badge b1">Excel</span>
+          <span class="badge b2">Jupyter</span>
+          <span class="badge b3">Git</span>
+          <span class="badge b4">VS Code</span>
+          <span class="badge b5">Docker</span>
+          <span class="badge">FastAPI</span>
+          <span class="badge b2">MLflow</span>
+        </div>
+      </div>
+
+      <div class="card mt12">
+        <h3 style="margin:0 0 10px;">Cloud & Databases</h3>
+        <div class="badges">
+          <span class="badge b1">AWS</span>
+          <span class="badge b2">MySQL</span>
+          <span class="badge b3">PostgreSQL</span>
+          <span class="badge b4">MongoDB</span>
+          <span class="badge b5">ETL Pipelines</span>
+        </div>
       </div>
     </div>
-
-    <!-- Category 2 -->
-    <div class="card mt12">
-      <h3 style="margin:0 0 10px;">AI / ML</h3>
-      <div class="badges">
-        <span class="badge b1">Machine Learning</span>
-        <span class="badge b2">Deep Learning</span>
-        <span class="badge b3">Generative AI</span>
-        <span class="badge b4">LLMs</span>
-        <span class="badge b5">Model Fine-tuning</span>
-        <span class="badge b6">RAG Pipelines</span>
-        <span class="badge b2">NLP</span>
-        <span class="badge b3">Computer Vision</span>
-        <span class="badge b4">Prompt Engineering</span>
-      </div>
-    </div>
-
-    <!-- Category 3 -->
-    <div class="card mt12">
-      <h3 style="margin:0 0 10px;">Libraries & Frameworks</h3>
-      <div class="badges">
-        <span class="badge b1">PyTorch</span>
-        <span class="badge b2">TensorFlow</span>
-        <span class="badge b3">Scikit-learn</span>
-        <span class="badge b4">Hugging Face</span>
-        <span class="badge b5">LangChain</span>
-      </div>
-    </div>
-
-    <!-- Category 4 -->
-    <div class="card mt12">
-      <h3 style="margin:0 0 10px;">Tools / Analytics</h3>
-      <div class="badges">
-        <span class="badge b1">Excel</span>
-        <span class="badge b2">Jupyter</span>
-        <span class="badge b3">Git</span>
-        <span class="badge b4">VS Code</span>
-        <span class="badge b5">Docker</span>
-        <span class="badge b6">FastAPI</span>
-        <span class="badge b2">MLflow</span>
-      </div>
-    </div>
-
-    <!-- Category 5 -->
-    <div class="card mt12">
-      <h3 style="margin:0 0 10px;">Cloud & Databases</h3>
-      <div class="badges">
-        <span class="badge b1">AWS</span>
-        <span class="badge b2">MySQL</span>
-        <span class="badge b3">PostgreSQL</span>
-        <span class="badge b4">MongoDB</span>
-        <span class="badge b5">ETL Pipelines</span>
-      </div>
-    </div>
-
-    <!-- Certifications -->
-    <div class="card mt12">
-      <h3 style="margin:0 0 10px;">Certifications</h3>
-      <div class="badges">
-        <span class="badge b1">AWS Certified Machine Learning Engineer – Associate</span>
-        <span class="badge b2">Hugging Face — Transformers & NLP</span>
-        <span class="badge b3">SQL — HackerRank</span>
-        <span class="badge b4">Problem Solving — HackerRank</span>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
   <!-- CERTIFICATIONS -->
   <section id="certifications">
@@ -709,8 +654,6 @@
         <div class="card"><h3 style="margin:0">SQL — HackerRank</h3></div>
         <div class="card"><h3 style="margin:0">Problem Solving — HackerRank</h3></div>
       </div>
-
-      <!-- ✅ Removed the "Links" card at the end as requested -->
     </div>
   </section>
 
