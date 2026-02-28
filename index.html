@@ -1,671 +1,276 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Akshitha Baira | Gen AI Engineer • ML Engineer</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Akshitha Baira | Gen AI Engineer</title>
 
-  <meta name="description" content="Akshitha Baira — Gen AI Engineer and ML Engineer building scalable ML systems, deep learning models, and production-ready pipelines." />
-  <meta name="robots" content="index,follow" />
-  <meta name="theme-color" content="#dfe6f2" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+:root{
+  --bg:#eef2f7;
+  --white:#ffffff;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --border:#e5e7eb;
 
-  <style>
-    :root{
-      /* ✅ less-bright, professional cool-grey theme (not dark, not bright) */
-      --bg1:#e9edf5;
-      --bg2:#dde4f0;
-      --bg3:#e6ecf7;
+  --accent:#4f46e5;
+  --accent-soft:#e0e7ff;
 
-      --text:#111827;
-      --muted:#4b5563;
+  --shadow: 0 8px 25px rgba(0,0,0,0.06);
+}
 
-      --card:#f8f9fc;
-      --card2:#eef2f8;
-      --line: rgba(0,0,0,.10);
-      --shadow: 0 10px 30px rgba(0,0,0,.08);
+body{
+  margin:0;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
+  background: var(--bg);
+  color: var(--text);
+}
 
-      --accent:#5b6cf0;
-      --accent2:#4ea8de;
-      --radius: 16px;
+.container{
+  width: min(1100px,92%);
+  margin: auto;
+}
 
-      /* ✅ softer badge colors */
-      --b1:#dde3ff;
-      --b2:#d7ecf7;
-      --b3:#dff5e6;
-      --b4:#f9eadb;
-      --b5:#f7dde3;
-      --b6:#e5e9f2;
-    }
+h2{
+  color: var(--accent);
+  margin-bottom:15px;
+}
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color:var(--text);
-      line-height:1.65;
+/* Top Bar */
+.topstrip{
+  background: var(--white);
+  border-bottom:1px solid var(--border);
+  padding:12px 0;
+}
 
-      /* ✅ remove very bright glow, keep clean gradient */
-      background: linear-gradient(180deg, var(--bg1), var(--bg2) 60%, var(--bg3));
-      overflow-x:hidden;
-    }
+.top-inner{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:10px;
+}
 
-    a{color:inherit;text-decoration:none}
-    a:hover{opacity:.9}
+.pill{
+  padding:6px 12px;
+  border-radius:30px;
+  background:#f3f4f6;
+  font-size:13px;
+  color:var(--muted);
+}
 
-    .container{width:min(1120px, 92%); margin:0 auto}
-    .muted{color:var(--muted)}
-    .small{font-size:13px}
-    .mt12{margin-top:12px}
-    .mt16{margin-top:16px}
-    .mt20{margin-top:20px}
+.btn{
+  padding:8px 14px;
+  border-radius:8px;
+  font-weight:600;
+  text-decoration:none;
+}
 
-    /* ===== Top strip ===== */
-    .topstrip{
-      position:sticky;
-      top:0;
-      z-index:999;
-      background: rgba(248,249,252,.82);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-    }
-    .strip-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding: 10px 0;
-      flex-wrap:wrap;
-    }
-    .strip-left,.strip-right{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(248,249,252,.85);
-      font-size: 13px;
-      color: var(--muted);
-      white-space:nowrap;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 10px 14px;
-      border-radius: 12px;
-      font-weight: 800;
-      font-size: 14px;
-      border: 1px solid transparent;
-      transition: transform .15s ease;
-      white-space:nowrap;
-    }
-    .btn:hover{transform: translateY(-1px)}
-    .btn-primary{
-      /* ✅ softer shadow + less “glow” */
-      background: linear-gradient(135deg, var(--accent), #667eea);
-      box-shadow: 0 6px 18px rgba(91,108,240,.18);
-      color:#fff;
-    }
-    .btn-ghost{
-      background: rgba(248,249,252,.85);
-      border: 1px solid var(--line);
-      color: var(--text);
-    }
+.btn-primary{
+  background:var(--accent);
+  color:white;
+}
 
-    /* ===== Nav ===== */
-    .nav{
-      padding: 10px 0 12px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .nav a{
-      color: var(--muted);
-      font-size: 13px;
-      padding: 6px 10px;
-      border-radius: 10px;
-      border: 1px solid transparent;
-    }
-    .nav a:hover{
-      color: var(--text);
-      border-color: var(--line);
-      background: rgba(248,249,252,.85);
-    }
+/* Section */
+section{
+  padding:40px 0;
+}
 
-    /* ===== Cards / section ===== */
-    section{padding: 30px 0}
-    .card{
-      border: 1px solid var(--line);
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 18px;
-      box-shadow: var(--shadow);
-    }
+/* Cards */
+.card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:20px;
+  box-shadow: var(--shadow);
+}
 
-    .section-head{margin-bottom: 12px}
-    .section-head h2{
-      margin:0 0 6px;
-      font-size: 22px;
-      letter-spacing: -0.2px;
-    }
+/* Hero */
+.hero{
+  padding:60px 0 40px;
+}
 
-    /* ===== Hero ===== */
-    .hero{padding: 34px 0 20px}
-    .hero-bg{
-      border-radius: 22px;
-      border: 1px solid var(--line);
-      background:
-        linear-gradient(135deg, rgba(91,108,240,.10), rgba(78,168,222,.10)),
-        url("https://media.licdn.com/dms/image/v2/D5612AQFFYxwi-49jYg/article-cover_image-shrink_600_2000/B56ZcMot_JHEAQ-/0/1748263706808?e=2147483647&v=beta&t=sMAC8_0sRhs6lRSjm6wcThC9bcmH4jwWVX4Ks0AJMgM");
-      background-size: cover;
-      background-position: center;
-      overflow:hidden;
-      position:relative;
-    }
-    .hero-overlay{
-      position:absolute; inset:0;
-      /* ✅ reduce brightness strongly (your request) */
-      background: rgba(248,249,252,.58);
-    }
-    .hero-inner{position:relative; padding: 26px}
+.hero-box{
+  background:linear-gradient(135deg, rgba(79,70,229,0.08), rgba(0,0,0,0.02));
+  border-radius:20px;
+  padding:40px;
+  box-shadow: var(--shadow);
+}
 
-    .kicker{
-      display:inline-flex;
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(248,249,252,.92);
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 12px;
-    }
-    h1{
-      margin:0 0 10px;
-      font-size: clamp(28px, 3.7vw, 46px);
-      line-height:1.12;
-      letter-spacing: -0.5px;
-    }
-    .name{
-      display:inline-block;
-      padding: 0 10px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, rgba(91,108,240,.16), rgba(78,168,222,.12));
-      border: 1px solid var(--line);
-    }
-    .lead{
-      margin:0 0 14px;
-      color: var(--muted);
-      max-width: 78ch;
-    }
-    .hero-actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+.name{
+  background:var(--accent-soft);
+  color:var(--accent);
+  padding:5px 10px;
+  border-radius:8px;
+}
 
-    /* ===== Layout grids ===== */
-    .grid{display:grid; gap: 12px}
-    .two{grid-template-columns: repeat(2, minmax(0,1fr))}
-    .three{grid-template-columns: repeat(3, minmax(0,1fr))}
+.hero h1{
+  font-size:40px;
+  margin-bottom:15px;
+}
 
-    /* ===== Education logo watermark ===== */
-    .edu-card{
-      position:relative;
-      overflow:hidden;
-      background: linear-gradient(180deg, var(--card), var(--card2));
-    }
-    .edu-card::before{
-      content:"";
-      position:absolute;
-      inset:-30px;
-      background-repeat:no-repeat;
-      background-position:right 16px center;
-      background-size: 220px auto;
-      opacity:.08;               /* ✅ reduced so it doesn't look too bright */
-      filter: grayscale(100%);
-      pointer-events:none;
-    }
-    .edu-yu::before{
-      background-image:url("https://m-production.myliaison.com/school_images/Yeshiva%20University.webp");
-    }
-    .edu-mgu::before{
-      background-image:url("https://upload.wikimedia.org/wikipedia/en/1/11/Mahatma_Gandhi_University%2C_Nalgonda_logo.png");
-      background-size: 180px auto;
-    }
+.lead{
+  color:var(--muted);
+  max-width:700px;
+}
 
-    /* ===== Badges ===== */
-    .badges{display:flex; gap:8px; flex-wrap:wrap; margin-top: 10px}
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      font-size: 12px;
-      color: #111827;
-      background: var(--b6);
-      white-space:nowrap;
-    }
-    .b1{background: var(--b1)}
-    .b2{background: var(--b2)}
-    .b3{background: var(--b3)}
-    .b4{background: var(--b4)}
-    .b5{background: var(--b5)}
+/* Grid */
+.grid{
+  display:grid;
+  gap:20px;
+}
 
-    /* ===== Experience ===== */
-    .role{
-      padding: 18px;
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, var(--card), var(--card2));
-      box-shadow: var(--shadow);
-    }
-    .role h3{margin:0 0 4px; font-size: 16px}
-    .meta{color: var(--muted); font-size: 13px}
-    .bullets{margin: 10px 0 0; padding-left: 18px; color: var(--muted)}
-    .bullets li{margin-bottom: 8px}
-    .bullets b{color: #111827}
+.two{
+  grid-template-columns:repeat(2,1fr);
+}
 
-    /* ===== Projects ===== */
-    .project{
-      overflow:hidden;
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, var(--card), var(--card2));
-      box-shadow: var(--shadow);
-    }
-    .project-img{
-      height: 175px;
-      border-bottom: 1px solid var(--line);
-      background-size: cover;
-      background-position: center;
-    }
-    .project-body{padding: 16px}
-    .project h3{margin:0 0 8px; font-size: 16px}
-    .project p{margin:0 0 10px; color: var(--muted); font-size: 14px}
-    .ach{margin: 10px 0 0; padding-left: 18px; color: var(--muted); font-size: 14px}
-    .ach li{margin-bottom: 8px}
+.three{
+  grid-template-columns:repeat(3,1fr);
+}
 
-    /* ===== Footer ===== */
-    footer{
-      padding: 20px 0;
-      border-top: 1px solid var(--line);
-      background: rgba(248,249,252,.75);
-      color: var(--muted);
-    }
-    .foot{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-    }
+@media(max-width:900px){
+  .two,.three{
+    grid-template-columns:1fr;
+  }
+}
 
-    @media (max-width: 980px){
-      .two,.three{grid-template-columns: 1fr}
-      .edu-card::before{background-position:center; opacity:.06}
-      .pill{font-size:12px}
-      .btn{font-size:13px}
-      .hero-inner{padding: 18px}
-      .hero-overlay{background: rgba(248,249,252,.62);}
-    }
-  </style>
+/* Roles */
+.role{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:20px;
+  box-shadow: var(--shadow);
+}
+
+.role b{
+  color:var(--accent);
+}
+
+.meta{
+  font-size:13px;
+  color:var(--muted);
+  margin-bottom:10px;
+}
+
+/* Badges */
+.badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:12px;
+}
+
+.badge{
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:600;
+}
+
+.badge:nth-child(5n+1){ background:#dbeafe; }
+.badge:nth-child(5n+2){ background:#ede9fe; }
+.badge:nth-child(5n+3){ background:#dcfce7; }
+.badge:nth-child(5n+4){ background:#ffedd5; }
+.badge:nth-child(5n+5){ background:#ffe4e6; }
+
+/* Projects */
+.project img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  border-radius:12px;
+  margin-bottom:12px;
+}
+
+/* Footer */
+footer{
+  padding:25px 0;
+  text-align:center;
+  border-top:1px solid var(--border);
+  background:var(--white);
+  color:var(--muted);
+}
+</style>
 </head>
 
 <body>
-  <div class="topstrip">
-    <div class="container">
-      <div class="strip-inner">
-        <div class="strip-left">
-          <span class="pill"><i class="fa-solid fa-location-dot"></i> New Jersey, USA</span>
-          <a class="pill" href="mailto:bairaakshitha@gmail.com"><i class="fa-solid fa-envelope"></i> bairaakshitha@gmail.com</a>
-          <a class="pill" href="tel:+12039017300"><i class="fa-solid fa-phone"></i> +1 (203) 901-7300</a>
-        </div>
 
-        <div class="strip-right">
-          <a class="pill" href="https://www.linkedin.com/in/akshitha-baira-48a11b345/" target="_blank" rel="noopener">
-            <i class="fa-brands fa-linkedin"></i> LinkedIn
-          </a>
-          <a class="pill" href="https://github.com/BairaAkshitha" target="_blank" rel="noopener">
-            <i class="fa-brands fa-github"></i> GitHub
-          </a>
-          <a class="pill" href="https://www.researchgate.net/profile/Akshitha-Baira" target="_blank" rel="noopener">
-            <i class="fa-brands fa-researchgate"></i> ResearchGate
-          </a>
+<!-- TOP BAR -->
+<div class="topstrip">
+  <div class="container top-inner">
+    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+      <div class="pill">📍 New Jersey, USA</div>
+      <div class="pill">📧 bairaakshitha@gmail.com</div>
+      <div class="pill">📞 +1 (203) 901-7300</div>
+    </div>
+    <div style="display:flex; gap:10px;">
+      <a href="https://www.linkedin.com/in/akshitha-baira-48a11b345/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/BairaAkshitha" target="_blank">GitHub</a>
+      <a href="https://www.researchgate.net/profile/Akshitha-Baira" target="_blank">ResearchGate</a>
+      <a class="btn btn-primary" href="https://drive.google.com/file/d/1ByXrMGPXK9C1XtlbejXLlRnDyM9Ty6KU/view?usp=drive_link" target="_blank">Resume</a>
+    </div>
+  </div>
+</div>
 
-          <a class="btn btn-primary" href="https://drive.google.com/file/d/1ByXrMGPXK9C1XtlbejXLlRnDyM9Ty6KU/view?usp=drive_link" target="_blank" rel="noopener">
-            <i class="fa-solid fa-file-arrow-down"></i> Resume
-          </a>
-        </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-box">
+      <h1>Hello, I’m <span class="name">Akshitha Baira</span></h1>
+      <p class="lead">
+        Gen AI Engineer and ML Engineer with 3+ years of experience building scalable ML systems and deep learning models.
+        Skilled in model development, experimentation, evaluation (F1/ROC-AUC/MAE/RMSE), and production-ready deployments.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section>
+  <div class="container">
+    <h2>Education</h2>
+    <div class="grid two">
+      <div class="card">
+        <h3>Yeshiva University — M.S. Artificial Intelligence</h3>
+        <div class="meta">New York, USA • Jan 2024 – Dec 2025</div>
       </div>
-
-      <div class="nav">
-        <a href="#summary">Summary</a>
-        <a href="#education">Education</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#certifications">Certifications</a>
+      <div class="card">
+        <h3>Mahatma Gandhi University — B.Tech Computer Science</h3>
+        <div class="meta">India • Aug 2019 – May 2023</div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-bg">
-        <div class="hero-overlay"></div>
-        <div class="hero-inner">
-          <div class="kicker">Gen AI Engineer • Machine Learning Engineer • AI Engineer</div>
-          <h1>Hello, I’m <span class="name">Akshitha Baira</span></h1>
+<!-- EXPERIENCE -->
+<section>
+  <div class="container">
+    <h2>Work Experience</h2>
 
-          <p class="lead">
-            I’m a Gen AI Engineer and ML Engineer with 3+ years of experience building end-to-end machine learning solutions —
-            from data preparation and modeling to evaluation and deployment. I work on deep learning, NLP/LLM workflows, and
-            medical imaging systems, focusing on measurable impact and clean production delivery.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#projects"><i class="fa-solid fa-diagram-project"></i> View Projects</a>
-            <a class="btn btn-ghost" href="#experience"><i class="fa-solid fa-briefcase"></i> Work Experience</a>
-            <a class="btn btn-ghost" href="#skills"><i class="fa-solid fa-layer-group"></i> Skills</a>
-          </div>
-        </div>
+    <div class="role">
+      <h3>AI/ML Engineer — Prevail Infotech Inc</h3>
+      <div class="meta">Utah, USA • Jul 2024 – Present</div>
+      <ul>
+        <li>Built ML pipelines using <b>Python</b> and <b>Scikit-learn</b>.</li>
+        <li>Improved performance via <b>F1, ROC-AUC</b> optimization.</li>
+        <li>Integrated models with <b>FastAPI</b> and <b>Docker</b>.</li>
+      </ul>
+      <div class="badges">
+        <span class="badge">Python</span>
+        <span class="badge">Scikit-learn</span>
+        <span class="badge">FastAPI</span>
+        <span class="badge">Docker</span>
+        <span class="badge">PostgreSQL</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PROFESSIONAL SUMMARY -->
-  <section id="summary">
-    <div class="container">
-      <div class="section-head">
-        <h2>Professional Summary</h2>
-      </div>
+<footer>
+  © 2026 Akshitha Baira — Gen AI Engineer
+</footer>
 
-      <div class="card">
-        <p style="margin:0; color: var(--muted);">
-          Gen AI Engineer and ML Engineer with strong experience in building scalable ML systems and deep learning models.
-          Skilled in model development, feature engineering, experimentation, and performance evaluation (F1/ROC-AUC/MAE/RMSE),
-          with hands-on experience delivering production-ready inference pipelines and API-based integrations.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education">
-    <div class="container">
-      <div class="section-head">
-        <h2>Education</h2>
-      </div>
-
-      <div class="grid two">
-        <div class="card edu-card edu-yu">
-          <h3>Yeshiva University — M.S. Artificial Intelligence</h3>
-          <p class="muted small" style="margin:0">New York, USA • Jan 2024 – Dec 2025</p>
-        </div>
-
-        <div class="card edu-card edu-mgu">
-          <h3>Mahatma Gandhi University — B.Tech Computer Science</h3>
-          <p class="muted small" style="margin:0">India • Aug 2019 – May 2023</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="container">
-      <div class="section-head">
-        <h2>Work Experience</h2>
-      </div>
-
-      <div class="grid" style="gap:14px">
-        <div class="role">
-          <h3>AI/ML Engineer — Prevail Infotech Inc</h3>
-          <div class="meta">Utah, USA • Jul 2024 – Present</div>
-
-          <ul class="bullets">
-            <li>Built end-to-end ML pipelines using <b>Python</b>, <b>Scikit-learn</b>, and structured experimentation (feature selection, model comparison, threshold tuning).</li>
-            <li>Improved model performance using <b>Precision/Recall/F1</b> and <b>ROC-AUC</b>, with class-wise error analysis for reliability.</li>
-            <li>Implemented scalable inference workflows and integrations using <b>FastAPI</b>, <b>Docker</b>, and <b>Git</b>.</li>
-            <li>Worked with <b>SQL</b>/<b>PostgreSQL</b> extraction and preprocessing for model-ready datasets.</li>
-          </ul>
-
-          <div class="badges">
-            <span class="badge b1">Python</span>
-            <span class="badge b2">Scikit-learn</span>
-            <span class="badge b3">FastAPI</span>
-            <span class="badge b4">Docker</span>
-            <span class="badge b5">SQL / PostgreSQL</span>
-            <span class="badge">Model Evaluation</span>
-          </div>
-        </div>
-
-        <div class="role">
-          <h3>Machine Learning Engineer — Asics Technologies</h3>
-          <div class="meta">Hyderabad, India • Jun 2022 – Dec 2023</div>
-
-          <ul class="bullets">
-            <li>Developed ML models using <b>Logistic Regression</b>, <b>Random Forest</b>, and <b>XGBoost</b>, improving performance with <b>feature engineering</b> and <b>hyperparameter tuning</b>.</li>
-            <li>Built reusable training/evaluation pipelines with <b>Pandas</b>, <b>NumPy</b>, and metrics (F1, ROC-AUC, MAE/RMSE).</li>
-            <li>Created internal API endpoints using <b>FastAPI</b> for model testing and integration.</li>
-          </ul>
-
-          <div class="badges">
-            <span class="badge b1">XGBoost</span>
-            <span class="badge b2">Random Forest</span>
-            <span class="badge b3">FastAPI</span>
-            <span class="badge b4">Pandas / NumPy</span>
-            <span class="badge b5">Feature Engineering</span>
-            <span class="badge">Evaluation Metrics</span>
-          </div>
-        </div>
-
-        <div class="role">
-          <h3>Machine Learning Intern — Octagen Software Solutions</h3>
-          <div class="meta">Hyderabad, India • May 2022 – Jun 2022</div>
-
-          <ul class="bullets">
-            <li>Built an AQI forecasting workflow using <b>Python</b>, <b>Pandas</b>, and <b>Scikit-learn</b> including cleaning, feature creation, and regression evaluation.</li>
-          </ul>
-
-          <div class="badges">
-            <span class="badge b1">Python</span>
-            <span class="badge b2">Scikit-learn</span>
-            <span class="badge b4">Regression</span>
-            <span class="badge">Forecasting</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="container">
-      <div class="section-head">
-        <h2>Projects</h2>
-      </div>
-
-      <div class="grid three">
-        <article class="project">
-          <div class="project-img" style="background-image:url('https://images.unsplash.com/photo-1582719478171-2b2d79b55f38?auto=format&fit=crop&w=1600&q=70');"></div>
-          <div class="project-body">
-            <h3>Dose Prediction in Radiotherapy (DoseDiff + CTMamba)</h3>
-            <p>Improved diffusion-based dose prediction by refining noise schedules and denoising behavior using <b>PyTorch</b>. Focused on evaluation stability and clinically realistic outputs.</p>
-            <ul class="ach">
-              <li>Refined diffusion training behavior for improved stability.</li>
-              <li>Built evaluation workflow for consistent comparison.</li>
-              <li>Focused on medical imaging realism and reliability.</li>
-            </ul>
-            <div class="badges">
-              <span class="badge b1">PyTorch</span>
-              <span class="badge b2">Diffusion</span>
-              <span class="badge b3">Medical Imaging</span>
-              <span class="badge">Evaluation</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project">
-          <div class="project-img" style="background-image:url('https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=1600&q=70');"></div>
-          <div class="project-body">
-            <h3>Research Paper Summarizer (Transformers + FastAPI)</h3>
-            <p>Built an NLP system for summarizing long documents using <b>Transformers</b> and <b>Hugging Face</b>, exposed via <b>FastAPI</b>.</p>
-            <ul class="ach">
-              <li>Handled long documents with chunking and clean outputs.</li>
-              <li>API-first design for easy usage and integration.</li>
-              <li>Optimized for quick comprehension of research content.</li>
-            </ul>
-            <div class="badges">
-              <span class="badge b1">Transformers</span>
-              <span class="badge b2">Hugging Face</span>
-              <span class="badge b3">FastAPI</span>
-              <span class="badge">NLP</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project">
-          <div class="project-img" style="background-image:url('https://images.unsplash.com/photo-1581092919535-7146e06b4c9a?auto=format&fit=crop&w=1600&q=70');"></div>
-          <div class="project-body">
-            <h3>Brain Tumor Segmentation (U-Net)</h3>
-            <p>Implemented an end-to-end segmentation pipeline using <b>U-Net</b> with evaluation using <b>Dice/IoU</b>.</p>
-            <ul class="ach">
-              <li>End-to-end segmentation pipeline with preprocessing.</li>
-              <li>Used Dice/IoU to measure segmentation quality.</li>
-              <li>Improved robustness via augmentation.</li>
-            </ul>
-            <div class="badges">
-              <span class="badge b1">U-Net</span>
-              <span class="badge b2">Computer Vision</span>
-              <span class="badge b3">Dice / IoU</span>
-              <span class="badge">Medical Imaging</span>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <div class="grid two mt16">
-        <div class="card">
-          <h3>Additional Projects</h3>
-          <p class="muted" style="margin:0">
-            • CNN for Dog Heart Image Classification<br/>
-            • Bird Sound Spectrogram Segmentation (U-Net)<br/>
-          </p>
-        </div>
-        <div class="card">
-          <h3>Note</h3>
-          <p class="muted" style="margin:0">
-            If you upload your real project screenshots, I can replace the images above with your real results.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="container">
-      <div class="section-head">
-        <h2>Skills</h2>
-      </div>
-
-      <div class="card mt12">
-        <h3 style="margin:0 0 10px;">Programming</h3>
-        <div class="badges">
-          <span class="badge b1">Python</span>
-          <span class="badge b2">SQL</span>
-          <span class="badge b3">C</span>
-          <span class="badge b4">C++</span>
-          <span class="badge b5">Java</span>
-          <span class="badge">JavaScript</span>
-          <span class="badge b2">HTML</span>
-          <span class="badge b3">CSS</span>
-        </div>
-      </div>
-
-      <div class="card mt12">
-        <h3 style="margin:0 0 10px;">AI / ML</h3>
-        <div class="badges">
-          <span class="badge b1">Machine Learning</span>
-          <span class="badge b2">Deep Learning</span>
-          <span class="badge b3">Generative AI</span>
-          <span class="badge b4">LLMs</span>
-          <span class="badge b5">Model Fine-tuning</span>
-          <span class="badge">RAG Pipelines</span>
-          <span class="badge b2">NLP</span>
-          <span class="badge b3">Computer Vision</span>
-          <span class="badge b4">Prompt Engineering</span>
-        </div>
-      </div>
-
-      <div class="card mt12">
-        <h3 style="margin:0 0 10px;">Libraries & Frameworks</h3>
-        <div class="badges">
-          <span class="badge b1">PyTorch</span>
-          <span class="badge b2">TensorFlow</span>
-          <span class="badge b3">Scikit-learn</span>
-          <span class="badge b4">Hugging Face</span>
-          <span class="badge b5">LangChain</span>
-        </div>
-      </div>
-
-      <div class="card mt12">
-        <h3 style="margin:0 0 10px;">Tools / Analytics</h3>
-        <div class="badges">
-          <span class="badge b1">Excel</span>
-          <span class="badge b2">Jupyter</span>
-          <span class="badge b3">Git</span>
-          <span class="badge b4">VS Code</span>
-          <span class="badge b5">Docker</span>
-          <span class="badge">FastAPI</span>
-          <span class="badge b2">MLflow</span>
-        </div>
-      </div>
-
-      <div class="card mt12">
-        <h3 style="margin:0 0 10px;">Cloud & Databases</h3>
-        <div class="badges">
-          <span class="badge b1">AWS</span>
-          <span class="badge b2">MySQL</span>
-          <span class="badge b3">PostgreSQL</span>
-          <span class="badge b4">MongoDB</span>
-          <span class="badge b5">ETL Pipelines</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CERTIFICATIONS -->
-  <section id="certifications">
-    <div class="container">
-      <div class="section-head">
-        <h2>Certifications</h2>
-      </div>
-
-      <div class="grid two">
-        <div class="card"><h3 style="margin:0">AWS Certified Machine Learning Engineer – Associate</h3></div>
-        <div class="card"><h3 style="margin:0">Hugging Face — Transformers & NLP</h3></div>
-        <div class="card"><h3 style="margin:0">SQL — HackerRank</h3></div>
-        <div class="card"><h3 style="margin:0">Problem Solving — HackerRank</h3></div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container foot">
-      <div>© <span id="year"></span> Akshitha Baira</div>
-      <div>Gen AI Engineer • ML Engineer • AI Engineer</div>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
