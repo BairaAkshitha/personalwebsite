@@ -343,79 +343,105 @@
        ✅ DAY/NIGHT MODE ADDITION
        ========================= */
 
-    .theme-toggle{
-      cursor:pointer;
-      border:none;
-      outline:none;
-      background: rgba(255,255,255,.65);
-    }
+    /* =========================
+   ✅ DAY/NIGHT MODE (UPDATED — readable, not too dark)
+   ========================= */
 
-    body.dark-mode{
-      color: var(--text);
-      background:
-        radial-gradient(900px 550px at 12% -10%, rgba(79,70,229,.16), transparent 55%),
-        radial-gradient(800px 520px at 88% 10%, rgba(14,165,233,.14), transparent 52%),
-        radial-gradient(700px 500px at 50% 110%, rgba(244,63,94,.10), transparent 55%),
-        linear-gradient(180deg, #0b1020, #0a1226 45%, #0b1530);
-    }
+.theme-toggle{
+  cursor:pointer;
+  border:none;
+  outline:none;
+  background: rgba(255,255,255,.65);
+}
 
-    body.dark-mode .topstrip{
-      background: rgba(10,18,38,.55);
-      border-bottom: 1px solid rgba(226,232,240,.14);
-    }
-    body.dark-mode .pill{
-      background: rgba(17,24,39,.55);
-      border: 1px solid rgba(226,232,240,.14);
-      color: #cbd5e1;
-    }
-    body.dark-mode .btn-ghost{
-      background: rgba(17,24,39,.55);
-      border-color: rgba(226,232,240,.14);
-      color: #e5e7eb;
-    }
-    body.dark-mode .card,
-    body.dark-mode .role,
-    body.dark-mode .project{
-      background: linear-gradient(180deg, rgba(17,24,39,.88), rgba(15,23,42,.88));
-      border: 1px solid rgba(226,232,240,.12);
-    }
-    body.dark-mode .badge{
-      color:#e5e7eb;
-      border: 1px solid rgba(226,232,240,.12);
-      background: rgba(30,41,59,.75);
-    }
-    body.dark-mode .b1{background: rgba(59,130,246,.22)}
-    body.dark-mode .b2{background: rgba(129,140,248,.22)}
-    body.dark-mode .b3{background: rgba(34,197,94,.20)}
-    body.dark-mode .b4{background: rgba(245,158,11,.20)}
-    body.dark-mode .b5{background: rgba(244,63,94,.20)}
-    body.dark-mode .b6{background: rgba(148,163,184,.18)}
+/* ✅ Softer charcoal background (not black) */
+body.dark-mode{
+  background: linear-gradient(180deg, #111827, #0f172a 60%, #0b1220);
+  color:#e5e7eb;
+}
 
-    body.dark-mode .muted,
-    body.dark-mode .meta,
-    body.dark-mode .bullets,
-    body.dark-mode .project p,
-    body.dark-mode .ach{
-      color:#a7b4c6;
-    }
-    body.dark-mode .bullets b{
-      color:#e5e7eb;
-    }
-    body.dark-mode .kicker{
-      background: rgba(17,24,39,.55);
-      color:#cbd5e1;
-      border: 1px solid rgba(226,232,240,.14);
-    }
-    body.dark-mode .name{
-      background: rgba(79,70,229,.22);
-      border: 1px solid rgba(226,232,240,.12);
-      color:#e5e7eb;
-    }
-    body.dark-mode footer{
-      background: rgba(10,18,38,.55);
-      border-top: 1px solid rgba(226,232,240,.14);
-      color:#a7b4c6;
-    }
+/* ✅ Top strip readable */
+body.dark-mode .topstrip{
+  background: rgba(17,24,39,.72);
+  border-bottom: 1px solid rgba(226,232,240,.14);
+}
+
+/* ✅ Pills + links readable */
+body.dark-mode .pill{
+  background: rgba(30,41,59,.65);
+  border: 1px solid rgba(226,232,240,.14);
+  color: #e5e7eb;
+}
+
+/* ✅ Nav visible */
+body.dark-mode .nav a{ color:#cbd5e1; }
+body.dark-mode .nav a:hover{
+  color:#ffffff;
+  background: rgba(255,255,255,.08);
+  border-color: rgba(226,232,240,.18);
+}
+
+/* ✅ Buttons visible */
+body.dark-mode .btn-ghost{
+  background: rgba(30,41,59,.55);
+  border-color: rgba(226,232,240,.14);
+  color: #f8fafc;
+}
+
+/* ✅ Cards brighter so text is visible */
+body.dark-mode .card,
+body.dark-mode .role,
+body.dark-mode .project{
+  background: linear-gradient(180deg, rgba(30,41,59,.92), rgba(15,23,42,.92));
+  border: 1px solid rgba(226,232,240,.14);
+}
+
+/* ✅ Headings were “gone” — force them visible */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3{
+  color:#f8fafc !important;
+}
+body.dark-mode .section-head h2{
+  color:#f8fafc !important;
+}
+
+/* ✅ Text colors */
+body.dark-mode .muted,
+body.dark-mode .meta,
+body.dark-mode .bullets,
+body.dark-mode .project p,
+body.dark-mode .ach{
+  color:#cbd5e1;
+}
+body.dark-mode .bullets b{
+  color:#ffffff;
+}
+
+/* ✅ Hero overlay — not washed out */
+body.dark-mode .hero-overlay{
+  background: linear-gradient(90deg, rgba(2,6,23,.35), rgba(2,6,23,.18), rgba(2,6,23,.06));
+}
+
+/* ✅ Badges readable in dark mode */
+body.dark-mode .badge{
+  color:#f8fafc;
+  border: 1px solid rgba(226,232,240,.12);
+  background: rgba(148,163,184,.16);
+}
+body.dark-mode .b1{background: rgba(59,130,246,.22)}
+body.dark-mode .b2{background: rgba(129,140,248,.22)}
+body.dark-mode .b3{background: rgba(34,197,94,.20)}
+body.dark-mode .b4{background: rgba(245,158,11,.20)}
+body.dark-mode .b5{background: rgba(244,63,94,.20)}
+body.dark-mode .b6{background: rgba(148,163,184,.18)}
+
+/* ✅ Footer readable */
+body.dark-mode footer{
+  background: rgba(17,24,39,.72);
+  border-top: 1px solid rgba(226,232,240,.14);
+  color:#cbd5e1;
+}
   </style>
 </head>
 
