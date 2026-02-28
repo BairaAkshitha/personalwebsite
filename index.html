@@ -1,595 +1,826 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Akshitha Baira — AI/ML Engineer portfolio" />
-  <title>Akshitha Baira | AI/ML Engineer</title>
+  <title>Akshitha Baira | AI Engineer • ML Engineer</title>
+
+  <meta name="description" content="Akshitha Baira — AI/ML Engineer specializing in Deep Learning, Generative AI, LLM systems, and medical imaging projects (Diffusion, U-Net).">
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0b1220" />
+
+  <!-- Icons -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
     :root{
-      --bg:#070A12;
-      --card:#0D1326;
-      --muted:#98A2B3;
-      --text:#E6EAF2;
-      --line:rgba(255,255,255,.10);
-      --accent:#7C3AED;
-      --accent2:#22D3EE;
-      --good:#34D399;
-      --shadow: 0 16px 60px rgba(0,0,0,.35);
+      --bg:#070b14;
+      --bg2:#0b1220;
+      --card: rgba(255,255,255,.07);
+      --card2: rgba(255,255,255,.05);
+      --line: rgba(255,255,255,.13);
+      --text:#eef2ff;
+      --muted:#b9c2da;
+      --accent:#7c5cff;
+      --accent2:#4dd5ff;
+      --good:#34d399;
+      --warn:#fbbf24;
+      --shadow: 0 20px 70px rgba(0,0,0,.35);
       --radius: 18px;
-      --radius2: 24px;
-      --max: 1120px;
     }
+
     *{box-sizing:border-box}
-    html,body{height:100%}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color:var(--text);
       background:
-        radial-gradient(1200px 600px at 10% -10%, rgba(124,58,237,.35), transparent 60%),
-        radial-gradient(900px 500px at 90% 0%, rgba(34,211,238,.25), transparent 55%),
-        radial-gradient(900px 700px at 60% 120%, rgba(124,58,237,.18), transparent 55%),
-        linear-gradient(180deg, #060814 0%, #070A12 40%, #050711 100%);
+        radial-gradient(1000px 700px at 20% -10%, rgba(124,92,255,.22), transparent 60%),
+        radial-gradient(900px 650px at 90% 10%, rgba(77,213,255,.14), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      line-height:1.65;
       overflow-x:hidden;
     }
-    a{color:inherit; text-decoration:none}
-    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
 
-    /* Top nav */
-    .nav{
-      position:sticky; top:0; z-index:50;
+    a{color:inherit;text-decoration:none}
+    a:hover{opacity:.92}
+
+    .container{width:min(1120px, 92%); margin:0 auto}
+    .muted{color:var(--muted)}
+    .small{font-size:13px}
+    .mt8{margin-top:8px}
+    .mt12{margin-top:12px}
+    .mt16{margin-top:16px}
+    .mt20{margin-top:20px}
+    .mt28{margin-top:28px}
+
+    /* ===== Top contact strip ===== */
+    .topstrip{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background: rgba(7,11,20,.72);
       backdrop-filter: blur(12px);
-      background: rgba(7,10,18,.55);
-      border-bottom:1px solid var(--line);
+      border-bottom: 1px solid rgba(255,255,255,.10);
     }
-    .nav-inner{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
-      gap:16px;
+    .strip-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding: 10px 0;
+      flex-wrap:wrap;
     }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight:700; letter-spacing:.2px;
-    }
-    .dot{
-      width:10px; height:10px; border-radius:999px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 18px rgba(124,58,237,.65);
-    }
-    .links{
-      display:flex; align-items:center; gap:14px; flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-    .links a{
-      padding:8px 10px; border-radius:999px;
-      color:var(--muted);
-      border:1px solid transparent;
-      transition: .2s ease;
-      font-size:14px;
-    }
-    .links a:hover{
-      color:var(--text);
-      border-color:var(--line);
-      background: rgba(255,255,255,.04);
-    }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      transition:.2s ease;
-      font-weight:600;
-      font-size:14px;
+    .strip-left,.strip-right{display:flex; gap:14px; align-items:center; flex-wrap:wrap}
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      font-size: 13px;
+      color: var(--muted);
       white-space:nowrap;
     }
-    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.07); border-color:rgba(255,255,255,.18) }
-    .btn.primary{
-      border:none;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      color:#041014;
-      box-shadow: 0 14px 40px rgba(124,58,237,.25);
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 14px;
+      border: 1px solid transparent;
+      transition: transform .15s ease;
+      white-space:nowrap;
     }
-    .btn.primary:hover{ filter:saturate(1.1); transform: translateY(-1px) }
-
-    /* Hero */
-    .hero{ padding:56px 0 26px }
-    .hero-grid{
-      display:grid; gap:18px;
-      grid-template-columns: 1.4fr .9fr;
-      align-items:stretch;
+    .btn:hover{transform: translateY(-1px)}
+    .btn-primary{
+      background: linear-gradient(135deg, var(--accent), #6a7bff);
+      box-shadow: 0 14px 34px rgba(124,92,255,.22);
+      color:#fff;
     }
-    @media (max-width: 920px){
-      .hero-grid{ grid-template-columns:1fr; }
-    }
-    .hero-card{
-      border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      border-radius: var(--radius2);
-      box-shadow: var(--shadow);
-      position:relative;
-      overflow:hidden;
-    }
-    .hero-card::before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(700px 180px at 30% 20%, rgba(34,211,238,.18), transparent 65%),
-                  radial-gradient(600px 220px at 80% 0%, rgba(124,58,237,.22), transparent 60%);
-      pointer-events:none;
-    }
-    .hero-main{ padding:28px 26px; position:relative; }
-    .kicker{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:7px 12px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      border-radius:999px;
-      color:var(--muted);
-      font-weight:600;
-      font-size:13px;
-      width:fit-content;
-    }
-    .kicker b{color:var(--text); font-weight:700}
-    h1{
-      margin:14px 0 10px;
-      font-size:44px;
-      line-height:1.06;
-      letter-spacing:-.9px;
-    }
-    @media (max-width: 520px){ h1{ font-size:36px } }
-    .subtitle{
-      margin:0;
-      color:var(--muted);
-      font-size:16px;
-      line-height:1.6;
-      max-width: 60ch;
-    }
-    .hero-cta{
-      margin-top:18px;
-      display:flex; gap:12px; flex-wrap:wrap; align-items:center;
-    }
-    .meta-row{
-      margin-top:16px;
-      display:flex; gap:10px; flex-wrap:wrap;
-      color:var(--muted);
-      font-size:13px;
-    }
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-    }
-    .pill span{
-      width:8px; height:8px; border-radius:999px;
-      background: var(--good);
-      box-shadow: 0 0 14px rgba(52,211,153,.35);
+    .btn-ghost{
+      background: rgba(255,255,255,.05);
+      border-color: rgba(255,255,255,.12);
+      color: var(--text);
     }
 
-    /* Side card */
-    .side{
-      padding:18px;
+    /* ===== Simple nav (optional) ===== */
+    .nav{
+      padding: 12px 0 0;
+      margin-bottom: 10px;
       display:flex;
-      flex-direction:column;
-      gap:12px;
-      position:relative;
-    }
-    .stat{
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      border-radius: var(--radius);
-      padding:14px;
-    }
-    .stat h3{
-      margin:0 0 6px;
-      font-size:14px;
-      color:var(--muted);
-      font-weight:700;
-      letter-spacing:.2px;
-      text-transform:uppercase;
-    }
-    .stat .big{
-      font-size:28px; font-weight:800; letter-spacing:-.6px;
-      margin:0 0 6px;
-    }
-    .stat p{ margin:0; color:var(--muted); font-size:13px; line-height:1.5 }
-    .tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px }
-    .tag{
-      font-size:12px; color:var(--muted);
-      padding:7px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-    }
-
-    /* Sections */
-    section{ padding:36px 0 }
-    .section-title{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
-      margin-bottom:14px;
-    }
-    .section-title h2{
-      margin:0;
-      font-size:22px;
-      letter-spacing:-.3px;
-    }
-    .section-title p{ margin:0; color:var(--muted); font-size:14px; line-height:1.6; max-width:72ch }
-
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
       gap:14px;
+      flex-wrap:wrap;
     }
-    .card{
-      grid-column: span 6;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      border-radius: var(--radius);
-      padding:16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.2);
+    .nav a{
+      color: var(--muted);
+      font-size: 13px;
+      padding: 6px 10px;
+      border-radius: 10px;
+      border: 1px solid transparent;
     }
-    .card:hover{
-      transform: translateY(-2px);
-      transition: transform .2s ease;
+    .nav a:hover{
+      color: var(--text);
+      border-color: rgba(255,255,255,.10);
       background: rgba(255,255,255,.04);
     }
-    @media (max-width: 900px){
-      .card{ grid-column: span 12; }
+
+    /* ===== Hero ===== */
+    .hero{
+      position:relative;
+      padding: 42px 0 26px;
     }
-    .card h3{ margin:0 0 6px; font-size:16px; letter-spacing:-.2px }
-    .card .small{ color:var(--muted); font-size:13px; margin:0 0 10px; line-height:1.5 }
-    .bullets{ margin:0; padding-left:18px; color:var(--muted); line-height:1.6; font-size:14px }
-    .bullets li{ margin:6px 0 }
-    .stack{ display:flex; flex-wrap:wrap; gap:8px; margin-top:12px }
-    .chip{
-      font-size:12px;
-      padding:7px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
+    .hero-bg{
+      position:absolute; inset:-10px -10px 0 -10px;
+      z-index:-1;
+      opacity:.35;
+      filter:saturate(1.1) contrast(1.05);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.60)),
+        url("https://source.unsplash.com/nPpQprSfKUI/1600x900");
+      background-size: cover;
+      background-position: center;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 16px;
+      align-items:start;
+    }
+
+    .card{
+      border: 1px solid rgba(255,255,255,.12);
+      background: var(--card2);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .kicker{
+      display:inline-flex;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(28px, 3.7vw, 46px);
+      line-height:1.12;
+      letter-spacing: -0.5px;
+    }
+
+    .hello{
+      font-weight: 900;
+    }
+
+    .name{
+      display:inline-block;
+      padding: 0 10px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(124,92,255,.35), rgba(77,213,255,.22));
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 14px 40px rgba(124,92,255,.18);
+    }
+
+    .lead{
+      margin:0 0 14px;
+      color: var(--muted);
+      max-width: 78ch;
+    }
+
+    .hero-actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+
+    .mini-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .mini{
+      padding: 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+    }
+    .mini .label{display:block; color: var(--muted); font-size: 12px}
+    .mini .value{display:block; font-weight: 900; font-size: 13px}
+
+    /* ===== Sections ===== */
+    section{padding: 32px 0}
+    .section-head{margin-bottom: 12px}
+    .section-head h2{
+      margin:0 0 6px;
+      font-size: 22px;
+      letter-spacing: -0.2px;
+    }
+    .section-head p{margin:0; color: var(--muted)}
+    .grid{display:grid; gap: 12px}
+    .two{grid-template-columns: repeat(2, minmax(0,1fr))}
+    .three{grid-template-columns: repeat(3, minmax(0,1fr))}
+
+    .tags{display:flex; gap:8px; flex-wrap:wrap; margin-top: 10px}
+    .tag{
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
       color: var(--muted);
+      font-size: 12px;
+      white-space:nowrap;
     }
-    .card .actions{ margin-top:12px; display:flex; gap:10px; flex-wrap:wrap }
-    .muted-link{
-      color:var(--muted);
-      font-size:13px;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-    }
-    .muted-link:hover{ color:var(--text); background: rgba(255,255,255,.05) }
 
-    /* About */
-    .about{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      border-radius: var(--radius2);
-      padding:18px;
+    /* ===== Experience deep blocks ===== */
+    .role{
+      padding: 18px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
     }
-    .about p{ margin:0; color:var(--muted); line-height:1.7; font-size:15px }
-    .about strong{ color:var(--text) }
-
-    /* Experience timeline */
-    .timeline{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      border-radius: var(--radius2);
-      padding:18px;
+    .role-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap:wrap;
     }
-    .role{ padding:14px; border-radius: var(--radius); border:1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.02); }
-    .role + .role{ margin-top:10px }
-    .role-head{ display:flex; flex-wrap:wrap; gap:10px; align-items:baseline; justify-content:space-between }
-    .role-head h3{ margin:0; font-size:16px }
-    .role-head .meta{ color:var(--muted); font-size:13px }
-    .role ul{ margin:10px 0 0; padding-left:18px; color:var(--muted); font-size:14px; line-height:1.6 }
-    .role ul li{ margin:6px 0 }
+    .role h3{margin:0 0 4px; font-size: 16px}
+    .role .meta{color: var(--muted); font-size: 13px}
+    .bullets{margin: 10px 0 0; padding-left: 18px; color: var(--muted)}
+    .bullets li{margin-bottom: 8px}
+    .impact{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 10px;
+    }
+    .metric{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(52,211,153,.10);
+      color: #d6ffe9;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .metric.warn{
+      background: rgba(251,191,36,.10);
+      color: #fff2cc;
+    }
 
-    /* Footer */
+    /* ===== Projects with image + achievements ===== */
+    .project{
+      overflow:hidden;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      box-shadow: var(--shadow);
+    }
+    .project-img{
+      height: 160px;
+      background-size: cover;
+      background-position: center;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      filter:saturate(1.05) contrast(1.05);
+    }
+    .project-body{padding: 16px}
+    .project h3{margin:0 0 8px; font-size: 16px}
+    .project p{margin:0 0 10px; color: var(--muted); font-size: 14px}
+    .ach{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .ach li{margin-bottom: 8px}
+
+    /* ===== Skills: colored one-by-one rows ===== */
+    .skillrow{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadow);
+    }
+    .skillrow b{font-size: 14px}
+    .skillrow span{color: rgba(255,255,255,.85); font-size: 13px}
+    .skillrow .level{font-weight: 900}
+    .s1{background: linear-gradient(135deg, rgba(124,92,255,.25), rgba(77,213,255,.12));}
+    .s2{background: linear-gradient(135deg, rgba(52,211,153,.18), rgba(77,213,255,.10));}
+    .s3{background: linear-gradient(135deg, rgba(251,191,36,.16), rgba(124,92,255,.10));}
+    .s4{background: linear-gradient(135deg, rgba(77,213,255,.18), rgba(255,255,255,.06));}
+    .s5{background: linear-gradient(135deg, rgba(124,92,255,.20), rgba(52,211,153,.08));}
+
+    /* ===== Footer ===== */
     footer{
-      padding:30px 0 40px;
-      border-top:1px solid var(--line);
-      color:var(--muted);
-      font-size:13px;
+      padding: 20px 0;
+      border-top: 1px solid rgba(255,255,255,.10);
+      background: rgba(7,11,20,.55);
+      color: var(--muted);
     }
     .foot{
-      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+      display:flex;
+      justify-content:space-between;
       align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
     }
 
-    /* Smooth anchor offset */
-    .anchor{ scroll-margin-top: 90px; }
-
-    /* Small helper */
-    .mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    /* ===== Responsive ===== */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns: 1fr}
+      .mini-grid{grid-template-columns: 1fr}
+      .two,.three{grid-template-columns: 1fr}
+      .strip-inner{gap:10px}
+      .pill{font-size:12px}
+      .btn{font-size:13px}
+    }
   </style>
 </head>
 
 <body>
-  <!-- NAV -->
-  <div class="nav">
-    <div class="container nav-inner">
-      <div class="brand">
-        <span class="dot"></span>
-        <span>Akshitha Baira</span>
+  <!-- TOP: Contact + Location + Resume button (as you requested) -->
+  <div class="topstrip">
+    <div class="container">
+      <div class="strip-inner">
+        <div class="strip-left">
+          <span class="pill"><i class="fa-solid fa-location-dot"></i> New Jersey, USA</span>
+          <a class="pill" href="mailto:bairaakshitha@gmail.com"><i class="fa-solid fa-envelope"></i> bairaakshitha@gmail.com</a>
+          <a class="pill" href="tel:+12039017300"><i class="fa-solid fa-phone"></i> +1 (203) 901-7300</a>
+        </div>
+
+        <div class="strip-right">
+          <a class="pill" href="https://www.linkedin.com/in/akshitha-baira-48a11b345/" target="_blank" rel="noopener">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+          </a>
+          <a class="pill" href="https://github.com/BairaAkshitha" target="_blank" rel="noopener">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+          <a class="pill" href="https://www.researchgate.net/profile/Akshitha-Bair=" target="_blank" rel="noopener">
+            <i class="fa-brands fa-researchgate"></i> ResearchGate
+          </a>
+
+          <!-- Resume button at the top -->
+          <a class="btn btn-primary" href="https://drive.google.com/file/d/1ByXrMGPXK9C1XtlbejXLlRnDyM9Ty6KU/view?usp=drive_link" target="_blank" rel="noopener">
+            <i class="fa-solid fa-file-arrow-down"></i> Resume
+          </a>
+        </div>
       </div>
 
-      <div class="links">
-        <a href="#about">About</a>
+      <!-- Small navigation (optional but helpful) -->
+      <div class="nav">
+        <a href="#summary">Summary</a>
+        <a href="#education">Education</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-        <a class="btn" target="_blank" rel="noopener" href="https://www.researchgate.net/profile/Akshitha-Baira">ResearchGate</a>
-        <a class="btn primary" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1ByXrMGPXK9C1XtlbejXLlRnDyM9Ty6KU/view?usp=drive_link">Resume</a>
+        <a href="#certifications">Certifications</a>
       </div>
     </div>
   </div>
 
   <!-- HERO -->
-  <header class="hero">
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
     <div class="container hero-grid">
-      <div class="hero-card">
-        <div class="hero-main">
-          <div class="kicker">
-            <b>AI/ML Engineer</b> • 3+ years • GenAI • Medical AI
-          </div>
-          <h1>Building reliable AI systems<br/>that ship to the real world.</h1>
-          <p class="subtitle">
-            I’m Akshitha — an AI/ML Engineer focused on predictive modeling, AI-driven decision systems, and
-            production-ready pipelines. I’ve worked on risk/outcome scoring systems and research projects in
-            diffusion-based radiotherapy dose prediction and document intelligence.
-          </p>
+      <div class="card">
+        <div class="kicker">AI Engineer • Machine Learning Engineer • Generative AI</div>
 
-          <div class="hero-cta">
-            <a class="btn primary" href="#projects">View Projects</a>
-            <a class="btn" href="#experience">Work Experience</a>
-            <a class="btn" target="_blank" rel="noopener" href="https://linkedin.com/in/akshitha-baira-48a11b345">LinkedIn</a>
-            <a class="btn" target="_blank" rel="noopener" href="https://github.com/akshithabaira">GitHub</a>
-          </div>
+        <!-- Greeting first, name highlighted (your requirement) -->
+        <h1 class="hello">
+          Hi, hello 👋 I’m <span class="name">Akshitha Baira</span>
+        </h1>
 
-          <div class="meta-row">
-            <div class="pill"><span></span> Open to AI/ML roles • US</div>
-            <div class="pill" style="border-color: rgba(124,58,237,.35)"><span style="background:var(--accent)"></span> Python • PyTorch • Scikit-learn</div>
-            <div class="pill" style="border-color: rgba(34,211,238,.35)"><span style="background:var(--accent2)"></span> FastAPI • Docker • MLflow</div>
+        <p class="lead">
+          I build production-ready AI systems and research-grade deep learning models — from data pipelines and evaluation
+          to scalable inference. My work spans <b>Generative AI (Diffusion, LLMs/RAG)</b>, <b>medical imaging</b>, and
+          <b>end-to-end ML deployment</b>.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects"><i class="fa-solid fa-diagram-project"></i> View Projects</a>
+          <a class="btn btn-ghost" href="#experience"><i class="fa-solid fa-briefcase"></i> Work Experience</a>
+          <a class="btn btn-ghost" href="#skills"><i class="fa-solid fa-layer-group"></i> Skills</a>
+        </div>
+
+        <div class="mini-grid">
+          <div class="mini">
+            <span class="label">Top Focus</span>
+            <span class="value">GenAI • Medical Imaging • Production ML</span>
+          </div>
+          <div class="mini">
+            <span class="label">Strength</span>
+            <span class="value">Experimentation + Evaluation + Deployment</span>
+          </div>
+          <div class="mini">
+            <span class="label">Impact Style</span>
+            <span class="value">Measurable outcomes (recall/F1, reliability)</span>
           </div>
         </div>
       </div>
 
-      <aside class="hero-card side">
-        <div class="stat">
-          <h3>Highlights</h3>
-          <div class="big">15%+</div>
-          <p>Improved recall on critical classes via threshold calibration and structured validation.</p>
+      <!-- Right highlights -->
+      <div class="card">
+        <div class="section-head">
+          <h2 style="margin:0;font-size:18px">Quick Highlights</h2>
+          <p class="small muted">The fastest way for a recruiter to understand your impact.</p>
+        </div>
+
+        <div class="impact">
+          <span class="metric"><i class="fa-solid fa-arrow-trend-up"></i> +15% Recall</span>
+          <span class="metric"><i class="fa-solid fa-bullseye"></i> +12% F1</span>
+          <span class="metric warn"><i class="fa-solid fa-chart-line"></i> R² ≈ 0.97</span>
+        </div>
+
+        <p class="muted mt12" style="margin-bottom:0">
+          Experienced with PyTorch, TensorFlow, Hugging Face, FastAPI, MLflow, Docker, AWS, SQL/PostgreSQL, MongoDB.
+        </p>
+
+        <div class="tags mt12">
+          <span class="tag">Diffusion Models</span>
+          <span class="tag">LLMs / RAG</span>
+          <span class="tag">U-Net Segmentation</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">MLOps Basics</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUMMARY -->
+  <section id="summary">
+    <div class="container">
+      <div class="section-head">
+        <h2>Professional Summary</h2>
+        <p>A clear story of what you do — written in a recruiter-friendly way.</p>
+      </div>
+
+      <div class="grid two">
+        <div class="card">
+          <h3>What I build</h3>
+          <p>
+            I design AI solutions that go from idea to production: data preparation, model training, evaluation,
+            and deployment. I focus on high-impact ML systems, including risk scoring pipelines, LLM-driven document workflows,
+            and diffusion models for radiotherapy dose prediction.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>How I deliver results</h3>
+          <p>
+            I work with strong experimentation and metrics. That means: class-wise error analysis, threshold calibration,
+            robust evaluation (F1/ROC-AUC/MAE/RMSE), and building reliable inference workflows (batch inference + lightweight serving).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="container">
+      <div class="section-head">
+        <h2>Education</h2>
+        <p>Your academic background (clean and easy to scan).</p>
+      </div>
+
+      <div class="grid two">
+        <div class="card">
+          <h3>Yeshiva University — M.S. Artificial Intelligence</h3>
+          <p class="muted small">New York, USA • Jan 2024 – Dec 2025</p>
           <div class="tags">
-            <span class="tag">Experimentation</span>
-            <span class="tag">Explainability</span>
-            <span class="tag">Inference</span>
-            <span class="tag">Optimization</span>
+            <span class="tag">Deep Learning</span>
+            <span class="tag">NLP</span>
+            <span class="tag">AWS</span>
           </div>
         </div>
 
-        <div class="stat">
-          <h3>Currently</h3>
-          <div class="big mono">AI/ML</div>
-          <p>Building AI-driven scoring pipelines and model interpretability workflows for internal products.</p>
+        <div class="card">
+          <h3>Mahatma Gandhi University — B.Tech Computer Science</h3>
+          <p class="muted small">India • Aug 2019 – May 2023</p>
           <div class="tags">
-            <span class="tag">Risk Scoring</span>
-            <span class="tag">Model Diagnostics</span>
+            <span class="tag">Computer Science</span>
+            <span class="tag">Programming</span>
+            <span class="tag">Foundations</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE (deep) -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-head">
+        <h2>Work Experience</h2>
+        <p>Deep, clear explanations of what you did — with measurable impact.</p>
+      </div>
+
+      <div class="grid" style="gap:14px">
+        <div class="role">
+          <div class="role-top">
+            <div>
+              <h3>AI/ML Engineer — Prevail Infotech Inc</h3>
+              <div class="meta">Utah, USA • Jul 2024 – Present</div>
+            </div>
+            <div class="impact">
+              <span class="metric"><i class="fa-solid fa-arrow-trend-up"></i> +15% Recall</span>
+              <span class="metric"><i class="fa-solid fa-server"></i> Scalable Inference</span>
+            </div>
+          </div>
+
+          <ul class="bullets">
+            <li>
+              Built end-to-end AI risk scoring pipelines, translating business goals into model-ready features, training workflows,
+              and reliable scoring outputs.
+            </li>
+            <li>
+              Ran structured experiments (feature selection, model comparison, threshold tuning) and improved recall by <b>~15%</b>
+              on critical classes while maintaining balance with precision.
+            </li>
+            <li>
+              Implemented explainability + class-wise diagnostics to improve transparency and stakeholder trust.
+            </li>
+            <li>
+              Delivered scalable batch inference and lightweight serving workflows to improve reliability and internal response times.
+            </li>
+          </ul>
+
+          <div class="tags">
+            <span class="tag">Experimentation</span>
+            <span class="tag">Threshold Calibration</span>
+            <span class="tag">Explainability</span>
             <span class="tag">Batch Inference</span>
           </div>
         </div>
 
-        <div class="stat">
-          <h3>Top Tools</h3>
-          <p>Python • PyTorch • TensorFlow • Scikit-learn • Hugging Face • LangChain • FastAPI • Docker • AWS</p>
-        </div>
-      </aside>
-    </div>
-  </header>
-
-  <!-- ABOUT -->
-  <section id="about" class="anchor">
-    <div class="container">
-      <div class="section-title">
-        <h2>About</h2>
-        <p>Short and recruiter-friendly overview (great for quick scans).</p>
-      </div>
-
-      <div class="about">
-        <p>
-          <strong>AI/ML Engineer</strong> with ~3+ years of combined experience across Machine Learning and AI engineering.
-          I enjoy building end-to-end systems: clean data pipelines, well-evaluated models, interpretable outputs, and
-          lightweight deployment workflows. My recent focus is on <strong>AI-driven decision systems</strong>, structured
-          experimentation, and applied GenAI projects (summarization and document intelligence).
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience" class="anchor">
-    <div class="container">
-      <div class="section-title">
-        <h2>Experience</h2>
-        <p>Impact-first summaries that mirror your resume and read well on GitHub Pages.</p>
-      </div>
-
-      <div class="timeline">
         <div class="role">
-          <div class="role-head">
-            <h3>AI/ML Engineer — Prevail Infotech INC</h3>
-            <div class="meta">Utah, USA • Jul 2024 – Present</div>
+          <div class="role-top">
+            <div>
+              <h3>Machine Learning Engineer — Asics Technologies</h3>
+              <div class="meta">Hyderabad, India • Jun 2022 – Dec 2023</div>
+            </div>
+            <div class="impact">
+              <span class="metric"><i class="fa-solid fa-bullseye"></i> +12% F1</span>
+              <span class="metric"><i class="fa-solid fa-gears"></i> Pipelines</span>
+            </div>
           </div>
-          <ul>
-            <li>Engineered AI-driven decision systems by combining predictive modeling with business logic for automated risk/outcome scoring.</li>
-            <li>Designed experimentation workflows for model & feature comparison; improved recall on high-impact classes by <b>15%</b> with threshold optimization.</li>
-            <li>Implemented explainability and diagnostics (feature importance, class-wise error analysis) to increase transparency and stakeholder confidence.</li>
-            <li>Contributed to lightweight model serving and batch inference pipelines to improve internal response time and reliability.</li>
+
+          <ul class="bullets">
+            <li>
+              Developed and optimized ML models (LogReg, Random Forest, XGBoost) for real datasets (50K+ records),
+              improving validation F1 by <b>~12%</b> through feature engineering and hyperparameter tuning.
+            </li>
+            <li>
+              Built clean pipelines: ingestion → preprocessing → feature transformations → training → evaluation,
+              using strong metrics (F1, ROC-AUC, MAE/RMSE).
+            </li>
+            <li>
+              Automated training/inference workflows and created FastAPI endpoints for internal model testing and integration.
+            </li>
           </ul>
+
+          <div class="tags">
+            <span class="tag">XGBoost</span>
+            <span class="tag">Feature Engineering</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Evaluation</span>
+          </div>
         </div>
 
         <div class="role">
-          <div class="role-head">
-            <h3>Machine Learning Engineer — Asics Technologies</h3>
-            <div class="meta">Hyderabad, India • Jun 2022 – Dec 2023</div>
+          <div class="role-top">
+            <div>
+              <h3>Machine Learning Intern — Octagen Software Solutions</h3>
+              <div class="meta">Hyderabad, India • May 2022 – Jun 2022</div>
+            </div>
+            <div class="impact">
+              <span class="metric warn"><i class="fa-solid fa-chart-line"></i> R² ≈ 0.97</span>
+            </div>
           </div>
-          <ul>
-            <li>Developed and optimized supervised ML models (Logistic Regression, Random Forest, XGBoost) improving validation performance by <b>12%</b>.</li>
-            <li>Performed EDA, preprocessing, encoding/scaling/outlier handling on structured datasets (50K+ records) to improve model reliability.</li>
-            <li>Applied cross-validation and hyperparameter tuning; evaluated with Precision/Recall/F1, ROC-AUC, MAE, RMSE for robust generalization.</li>
-            <li>Automated training + inference workflows and exposed prediction endpoints via FastAPI for internal testing.</li>
-          </ul>
-        </div>
 
-        <div class="role">
-          <div class="role-head">
-            <h3>Machine Learning Intern — Octagen Software Solutions</h3>
-            <div class="meta">Hyderabad, India • May 2022 – Jun 2022</div>
-          </div>
-          <ul>
-            <li>Built an end-to-end air quality prediction pipeline (preprocessing → feature engineering → modeling → evaluation).</li>
-            <li>Developed an AQI forecasting system with Scikit-learn/Pandas using pollutant history (SO₂, NO₂, RSPM, SPM), achieving <b>R² = 0.97</b>.</li>
+          <ul class="bullets">
+            <li>
+              Built an AQI forecasting system: data cleaning, feature engineering, regression modeling, validation, and residual analysis.
+            </li>
+            <li>
+              Achieved strong prediction performance with <b>R² ≈ 0.97</b> using Scikit-learn and Pandas.
+            </li>
           </ul>
+
+          <div class="tags">
+            <span class="tag">Regression</span>
+            <span class="tag">Scikit-learn</span>
+            <span class="tag">Time Series / Forecasting</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="anchor">
+  <!-- PROJECTS (clear + achievements) -->
+  <section id="projects">
     <div class="container">
-      <div class="section-title">
+      <div class="section-head">
         <h2>Projects</h2>
-        <p>Three projects that show GenAI, Medical AI, and end-to-end engineering.</p>
+        <p>Clear explanations + highlighted achievements (best section for hiring managers).</p>
       </div>
 
-      <div class="grid">
-        <div class="card">
-          <h3>Dose Prediction in Radiotherapy (Diffusion Models)</h3>
-          <p class="small">Extended DoseDiff for 3D dose prediction; built CTMamba hybrid for better spatial consistency.</p>
-          <ul class="bullets">
-            <li>Added distance-aware conditioning to improve modeling between targets and organs-at-risk.</li>
-            <li>Integrated a Mamba-based encoder (CTMamba) to improve DVH metrics and dose error vs baseline.</li>
-            <li>Improved training stability via experiment-driven tuning of denoising steps and loss behavior.</li>
-          </ul>
-          <div class="stack">
-            <span class="chip">PyTorch</span><span class="chip">Diffusion</span><span class="chip">Medical AI</span><span class="chip">OpenKBP</span>
+      <div class="grid three">
+        <article class="project">
+          <div class="project-img" style="background-image:
+            linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.75)),
+            url('https://source.unsplash.com/JUW7WZMOTDU/1200x800');"></div>
+          <div class="project-body">
+            <h3>Dose Prediction in Radiotherapy (DoseDiff + CTMamba)</h3>
+            <p>
+              Enhanced diffusion-based 3D dose prediction by refining noise schedules, denoising steps, and loss functions,
+              focusing on clinically realistic outputs and DVH consistency.
+            </p>
+            <ul class="ach">
+              <li><b>Generative AI</b>: diffusion-based sampling and denoising improvements.</li>
+              <li><b>Medical imaging</b>: improved dose realism and stability for evaluation.</li>
+              <li><b>Research engineering</b>: architecture refinement using hybrid encoder concepts.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">PyTorch</span>
+              <span class="tag">Diffusion</span>
+              <span class="tag">OpenKBP</span>
+              <span class="tag">DVH</span>
+            </div>
           </div>
-          <div class="actions">
-            <span class="muted-link">Add: GitHub link when ready</span>
-          </div>
-        </div>
+        </article>
 
-        <div class="card">
-          <h3>Research Paper Summarizer (LLM System)</h3>
-          <p class="small">Document ingestion → chunking → summarization + paraphrasing APIs for research workflows.</p>
-          <ul class="bullets">
-            <li>Built multi-document summarization using transformer seq2seq models for concise, structured outputs.</li>
-            <li>Designed FastAPI endpoints for PDF/text input, chunking, summarization, and tone-control paraphrasing.</li>
-            <li>Reduced manual review time by 60% through automated summarization workflows.</li>
-          </ul>
-          <div class="stack">
-            <span class="chip">Hugging Face</span><span class="chip">Transformers</span><span class="chip">FastAPI</span><span class="chip">NLP</span>
+        <article class="project">
+          <div class="project-img" style="background-image:
+            linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.75)),
+            url('https://source.unsplash.com/Srgu49rAgDI/1200x800');"></div>
+          <div class="project-body">
+            <h3>Research Paper Summarizer (Transformers + FastAPI)</h3>
+            <p>
+              Built an NLP system to summarize long documents using chunking and transformer-based summarization, exposed via FastAPI.
+              Designed for clean outputs that can be used directly in reports and presentations.
+            </p>
+            <ul class="ach">
+              <li><b>API-first</b>: FastAPI endpoints for easy integration.</li>
+              <li><b>Long document handling</b>: chunking pipeline for large PDFs/text.</li>
+              <li><b>Readable outputs</b>: summary + paraphrase flow for fast comprehension.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Transformers</span>
+              <span class="tag">Hugging Face</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">NLP</span>
+            </div>
           </div>
-          <div class="actions">
-            <span class="muted-link">Add: Demo/Repo link</span>
-          </div>
-        </div>
+        </article>
 
-        <div class="card">
-          <h3>Brain Tumor Segmentation (U-Net)</h3>
-          <p class="small">MRI tumor segmentation with metrics-driven training and validation pipeline.</p>
-          <ul class="bullets">
-            <li>Trained U-Net style architectures for pixel-level segmentation; evaluated using Dice/IoU.</li>
-            <li>Created augmentation + preprocessing pipeline to improve generalization and reduce overfitting.</li>
-            <li>Built end-to-end training workflow with checkpoints and validation diagnostics.</li>
-          </ul>
-          <div class="stack">
-            <span class="chip">U-Net</span><span class="chip">Computer Vision</span><span class="chip">Dice/IoU</span>
+        <article class="project">
+          <div class="project-img" style="background-image:
+            linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.75)),
+            url('https://source.unsplash.com/nPpQprSfKUI/1200x800');"></div>
+          <div class="project-body">
+            <h3>Brain Tumor Segmentation (U-Net)</h3>
+            <p>
+              Built a full segmentation pipeline for MRI scans, covering preprocessing, augmentation, training, and evaluation with Dice/IoU.
+            </p>
+            <ul class="ach">
+              <li><b>U-Net pipeline</b>: end-to-end training + evaluation.</li>
+              <li><b>Metrics</b>: Dice / IoU used for clinical segmentation quality.</li>
+              <li><b>Generalization</b>: augmentation to improve robustness.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">U-Net</span>
+              <span class="tag">Computer Vision</span>
+              <span class="tag">Dice/IoU</span>
+              <span class="tag">Medical Imaging</span>
+            </div>
           </div>
-          <div class="actions">
-            <span class="muted-link">Add: Notebook/Repo link</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Quick Skills Snapshot</h3>
-          <p class="small">Search-friendly keywords for recruiters + ATS.</p>
-          <div class="stack">
-            <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">PyTorch</span><span class="chip">TensorFlow</span>
-            <span class="chip">Scikit-learn</span><span class="chip">MLflow</span><span class="chip">Docker</span><span class="chip">FastAPI</span>
-            <span class="chip">LangChain</span><span class="chip">Hugging Face</span><span class="chip">NLP</span><span class="chip">CV</span>
-          </div>
-          <div class="actions">
-            <a class="btn" href="#contact">Contact</a>
-            <a class="btn primary" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1ByXrMGPXK9C1XtlbejXLlRnDyM9Ty6KU/view?usp=drive_link">Download Resume</a>
-          </div>
-        </div>
+        </article>
       </div>
-    </div>
-  </section>
 
-  <!-- SKILLS -->
-  <section id="skills" class="anchor">
-    <div class="container">
-      <div class="section-title">
-        <h2>Skills</h2>
-        <p>A compact view of tools you use across ML, GenAI, and deployment.</p>
-      </div>
-
-      <div class="grid">
+      <div class="grid two mt16">
         <div class="card">
-          <h3>Core</h3>
-          <p class="small">AI/ML • GenAI • NLP • CV • Experimentation • Evaluation • Explainability</p>
-          <div class="stack">
-            <span class="chip">Model Validation</span><span class="chip">Feature Engineering</span><span class="chip">Threshold Tuning</span>
-            <span class="chip">Error Analysis</span><span class="chip">SHAP/Importance</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Tech Stack</h3>
-          <p class="small">
-            Python • SQL • PyTorch • TensorFlow • Scikit-learn • Hugging Face • LangChain • FastAPI • Docker • MLflow • AWS
+          <h3>Additional Projects</h3>
+          <p class="muted" style="margin:0">
+            • CNN for Dog Heart Image Classification<br/>
+            • Bird Sound Spectrogram Segmentation (U-Net)<br/>
           </p>
-          <div class="actions">
-            <a class="muted-link" target="_blank" rel="noopener" href="https://github.com/akshithabaira">GitHub</a>
-            <a class="muted-link" target="_blank" rel="noopener" href="https://linkedin.com/in/akshitha-baira-48a11b345">LinkedIn</a>
-          </div>
+        </div>
+
+        <div class="card">
+          <h3>Want to add your real screenshots?</h3>
+          <p class="muted" style="margin:0">
+            Upload 3–5 screenshots (dose maps / DVH plot / summarizer UI / segmentation overlay) and I’ll replace these images
+            with your real results inside the cards.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="anchor">
+  <!-- SKILLS (colored one-by-one) -->
+  <section id="skills">
     <div class="container">
-      <div class="section-title">
-        <h2>Contact</h2>
-        <p>Quick links to reach you.</p>
+      <div class="section-head">
+        <h2>Skills</h2>
+        <p>Listed one-by-one with colored backgrounds (as you requested).</p>
       </div>
 
-      <div class="grid">
-        <div class="card">
-          <h3>Email</h3>
-          <p class="small"><a class="muted-link" href="mailto:bairaakshitha@gmail.com">bairaakshitha@gmail.com</a></p>
-          <div class="stack">
-            <span class="chip">Open to opportunities</span>
-            <span class="chip">AI/ML • GenAI • Data</span>
-          </div>
+      <div class="grid" style="gap:12px">
+        <div class="skillrow s1">
+          <div><b>Python</b><div class="small muted">Data processing, ML pipelines, automation</div></div>
+          <div class="level">Advanced</div>
         </div>
-        <div class="card">
-          <h3>Links</h3>
-          <div class="actions">
-            <a class="btn" target="_blank" rel="noopener" href="https://linkedin.com/in/akshitha-baira-48a11b345">LinkedIn</a>
-            <a class="btn" target="_blank" rel="noopener" href="https://github.com/akshithabaira">GitHub</a>
-            <a class="btn" target="_blank" rel="noopener" href="https://www.researchgate.net/profile/Akshitha-Baira">ResearchGate</a>
-            <a class="btn primary" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1ByXrMGPXK9C1XtlbejXLlRnDyM9Ty6KU/view?usp=drive_link">Resume</a>
-          </div>
+
+        <div class="skillrow s2">
+          <div><b>Machine Learning</b><div class="small muted">Feature engineering, model selection, evaluation</div></div>
+          <div class="level">Advanced</div>
+        </div>
+
+        <div class="skillrow s3">
+          <div><b>Deep Learning</b><div class="small muted">CNNs, U-Net, training optimization</div></div>
+          <div class="level">Advanced</div>
+        </div>
+
+        <div class="skillrow s4">
+          <div><b>Generative AI</b><div class="small muted">Diffusion models, denoising, sampling improvements</div></div>
+          <div class="level">Strong</div>
+        </div>
+
+        <div class="skillrow s5">
+          <div><b>LLMs / RAG / NLP</b><div class="small muted">Chunking, summarization, prompt workflows</div></div>
+          <div class="level">Strong</div>
+        </div>
+
+        <div class="skillrow s1">
+          <div><b>PyTorch / TensorFlow</b><div class="small muted">Model training, evaluation, experiments</div></div>
+          <div class="level">Strong</div>
+        </div>
+
+        <div class="skillrow s2">
+          <div><b>Hugging Face</b><div class="small muted">Transformers, pipelines, inference</div></div>
+          <div class="level">Strong</div>
+        </div>
+
+        <div class="skillrow s3">
+          <div><b>FastAPI</b><div class="small muted">APIs for ML/LLM apps</div></div>
+          <div class="level">Strong</div>
+        </div>
+
+        <div class="skillrow s4">
+          <div><b>Docker + MLflow</b><div class="small muted">Reproducibility, experiment tracking</div></div>
+          <div class="level">Good</div>
+        </div>
+
+        <div class="skillrow s5">
+          <div><b>AWS + Databases</b><div class="small muted">PostgreSQL, MongoDB, ETL basics</div></div>
+          <div class="level">Good</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS (at the end) -->
+  <section id="certifications">
+    <div class="container">
+      <div class="section-head">
+        <h2>Certifications</h2>
+        <p>Placed at the end (exactly as you asked).</p>
+      </div>
+
+      <div class="grid two">
+        <div class="card"><h3 style="margin:0">AWS Certified Machine Learning Engineer – Associate</h3></div>
+        <div class="card"><h3 style="margin:0">Hugging Face — Transformers & NLP</h3></div>
+        <div class="card"><h3 style="margin:0">SQL — HackerRank</h3></div>
+        <div class="card"><h3 style="margin:0">Problem Solving — HackerRank</h3></div>
+      </div>
+
+      <div class="card mt16">
+        <h3 style="margin:0 0 6px">Links</h3>
+        <div class="tags">
+          <a class="tag" href="https://www.linkedin.com/in/akshitha-baira-48a11b345/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a class="tag" href="https://github.com/BairaAkshitha" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a class="tag" href="https://www.researchgate.net/profile/Akshitha-Bair=" target="_blank" rel="noopener"><i class="fa-brands fa-researchgate"></i> ResearchGate</a>
+          <a class="tag" href="https://drive.google.com/file/d/1ByXrMGPXK9C1XtlbejXLlRnDyM9Ty6KU/view?usp=drive_link" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> Resume</a>
         </div>
       </div>
     </div>
@@ -597,30 +828,13 @@
 
   <footer>
     <div class="container foot">
-      <div>© <span id="year"></span> Akshitha Baira • Built on GitHub Pages</div>
-      <div class="mono">Last updated: <span id="updated"></span></div>
+      <div>© <span id="year"></span> Akshitha Baira</div>
+      <div>AI Engineer • ML Engineer • Generative AI</div>
     </div>
   </footer>
 
   <script>
-    // footer dates
-    const now = new Date();
-    document.getElementById("year").textContent = now.getFullYear();
-    const fmt = new Intl.DateTimeFormat(undefined, { year:"numeric", month:"short", day:"2-digit" });
-    document.getElementById("updated").textContent = fmt.format(now);
-
-    // smooth scroll for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener("click", (e)=>{
-        const id = a.getAttribute("href");
-        if(!id || id === "#") return;
-        const el = document.querySelector(id);
-        if(!el) return;
-        e.preventDefault();
-        el.scrollIntoView({behavior:"smooth", block:"start"});
-        history.pushState(null, "", id);
-      });
-    });
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
