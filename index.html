@@ -1,124 +1,360 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Akshitha Baira | AI Engineer • Machine Learning Engineer</title>
-  <meta name="description" content="Portfolio of Akshitha Baira — AI Engineer specializing in Deep Learning, Generative AI, LLM systems, and medical imaging. Projects include diffusion-based radiotherapy dose prediction and LLM-powered research summarization." />
+
+  <meta name="description" content="Akshitha Baira — AI Engineer specializing in Deep Learning, Generative AI, LLM systems, and medical imaging. Experience in ML pipelines, evaluation, and deployment with PyTorch, FastAPI, MLflow, and AWS." />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#0b1220" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Akshitha Baira | AI Engineer Portfolio" />
-  <meta property="og:description" content="Deep Learning • Generative AI • LLM Systems • Medical Imaging • Production ML" />
-  <meta property="og:type" content="website" />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.04);
+      --line: rgba(255,255,255,.12);
+      --text:#e9eefc;
+      --muted:#b7c0d6;
+      --accent:#7c5cff;
+      --accent2:#4dd5ff;
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color: var(--text);
+      background:
+        radial-gradient(1100px 700px at 20% -10%, rgba(124,92,255,.26), transparent 60%),
+        radial-gradient(900px 600px at 90% 10%, rgba(77,213,255,.18), transparent 55%),
+        linear-gradient(180deg, var(--bg), #070b14);
+      line-height: 1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    a:hover{opacity:.92}
+    .container{width:min(1100px, 92%); margin:0 auto}
+    .muted{color:var(--muted)}
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--panel2);
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .chip:hover{color:var(--text)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      font-weight: 650;
+      font-size: 14px;
+      transition: transform .15s ease;
+      white-space: nowrap;
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .btn-primary{
+      background: linear-gradient(135deg, var(--accent), #6a7bff);
+      color: #fff;
+      box-shadow: 0 14px 34px rgba(124,92,255,.22);
+    }
+    .btn-secondary{
+      background: var(--panel);
+      border-color: var(--line);
+      color: var(--text);
+    }
+    .btn-outline{
+      background: transparent;
+      border-color: rgba(77,213,255,.35);
+      color: var(--text);
+    }
 
-  <link rel="stylesheet" href="styles.css" />
+    /* Header */
+    header{
+      position: sticky; top:0; z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(7,11,20,.60);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
+      gap: 12px;
+    }
+    .brand{display:flex; align-items:center; gap:10px}
+    .dot{
+      width: 12px; height: 12px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+    }
+    .brand b{letter-spacing:.2px}
+    nav a{
+      color: var(--muted);
+      font-size: 14px;
+      margin-left: 16px;
+    }
+    nav a:hover{color: var(--text)}
+    .nav-right{display:flex; align-items:center; gap:10px}
+    .menu-btn{
+      display:none;
+      border: 1px solid var(--line);
+      background: var(--panel2);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-weight: 650;
+    }
+
+    /* Mobile menu */
+    .mobile{
+      display:none;
+      padding: 10px 0 16px;
+    }
+    .mobile a{
+      display:block;
+      padding: 10px 0;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .mobile a:hover{color:var(--text)}
+
+    /* Hero */
+    .hero{padding: 56px 0 24px}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .85fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .kicker{
+      display:inline-flex;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--panel2);
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(28px, 3.6vw, 44px);
+      line-height: 1.12;
+      letter-spacing: -0.4px;
+    }
+    .hero p{margin:0 0 14px}
+    .actions{display:flex; flex-wrap:wrap; gap:10px; margin: 12px 0 14px}
+    .meta{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .meta .card{
+      padding: 12px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--panel2);
+    }
+    .meta .label{display:block; color: var(--muted); font-size:12px}
+    .meta .value{display:block; font-weight:650; font-size: 13px}
+
+    .panel{
+      border: 1px solid var(--line);
+      background: var(--panel2);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+    .panel h3{
+      margin: 0 0 10px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: .2px;
+      color: var(--muted);
+    }
+    ul{margin:0; padding-left: 18px; color: var(--muted)}
+    li{margin-bottom: 8px}
+
+    /* Sections */
+    section{padding: 34px 0}
+    .section-head{margin-bottom: 12px}
+    .section-head h2{margin:0 0 6px; font-size: 22px}
+    .grid{display:grid; gap: 12px}
+    .cards-3{grid-template-columns: repeat(3, minmax(0,1fr))}
+    .cards-2{grid-template-columns: repeat(2, minmax(0,1fr))}
+    .cardx{
+      border: 1px solid var(--line);
+      background: var(--panel2);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+    .cardx h3{margin:0 0 8px; font-size: 16px}
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top: 8px}
+    .tag{
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* Experience */
+    .timeline{display:flex; flex-direction:column; gap: 12px}
+    .role{
+      display:grid;
+      grid-template-columns: 18px 1fr;
+      gap: 12px;
+      padding: 16px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--panel2);
+    }
+    .role .pin{
+      width: 10px; height: 10px; margin-top: 6px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+    }
+    .role h3{margin:0 0 4px; font-size: 16px}
+    .role .sub{margin:0 0 10px; font-size: 13px; color: var(--muted)}
+
+    /* Contact */
+    .contact{
+      display:flex; justify-content:space-between; align-items:flex-start;
+      gap: 14px;
+    }
+    .contact .left p{margin:0 0 8px}
+    footer{
+      border-top: 1px solid var(--line);
+      padding: 20px 0;
+      background: rgba(7,11,20,.55);
+    }
+    .foot{
+      display:flex; justify-content:space-between; align-items:center; gap:10px;
+      color: var(--muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns: 1fr}
+      .meta{grid-template-columns: 1fr}
+      .cards-3{grid-template-columns: 1fr}
+      .cards-2{grid-template-columns: 1fr}
+      nav{display:none}
+      .menu-btn{display:inline-flex}
+      .contact{flex-direction: column}
+    }
+  </style>
 </head>
 
 <body>
-  <!-- Optional: subtle splash (fast + professional) -->
-  <div id="splash" aria-hidden="true">
-    <div class="splash-inner">
-      <div class="splash-mark"></div>
-      <div>
-        <h1 class="splash-name">Akshitha Baira</h1>
-        <p class="splash-title">AI Engineer • Machine Learning Engineer</p>
-      </div>
-    </div>
-  </div>
-
-  <header class="site-header" id="top">
+  <header>
     <div class="container nav">
       <a class="brand" href="#top" aria-label="Go to top">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-name">Akshitha Baira</span>
+        <span class="dot" aria-hidden="true"></span>
+        <b>Akshitha Baira</b>
       </a>
 
-      <nav class="nav-links" aria-label="Primary navigation">
+      <nav aria-label="Primary navigation">
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
-        <a href="#certifications">Certifications</a>
-        <a class="nav-cta" href="#contact">Contact</a>
+        <a href="#certs">Certifications</a>
+        <a href="#contact">Contact</a>
       </nav>
+
+      <div class="nav-right">
+        <a class="btn btn-outline" href="https://github.com/BairaAkshitha" target="_blank" rel="noopener">GitHub</a>
+        <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+      </div>
+    </div>
+
+    <div class="container mobile" id="mobileMenu" aria-label="Mobile navigation">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#certs">Certifications</a>
+      <a href="#contact">Contact</a>
     </div>
   </header>
 
-  <main>
+  <main id="top">
     <!-- HERO -->
     <section class="hero">
       <div class="container hero-grid">
-        <div class="hero-left">
-          <p class="kicker">AI Engineer • ML Engineer • Research Engineer</p>
-          <h1 class="hero-title">
-            Building production-ready AI systems and research-grade models.
-          </h1>
+        <div>
+          <div class="kicker">AI Engineer • Machine Learning Engineer • Research Engineer</div>
+          <h1>Building production-ready AI systems and research-grade models.</h1>
 
-          <p class="hero-subtitle">
-            I specialize in deep learning and generative AI (diffusion models, transformers, and LLM-based systems),
-            with experience delivering end-to-end ML pipelines, model evaluation, and deployment using PyTorch,
-            Hugging Face, FastAPI, MLflow, and AWS.
+          <p class="muted">
+            I specialize in Deep Learning and Generative AI (diffusion models, transformers, and LLM-based systems),
+            with experience delivering end-to-end ML pipelines, evaluation, and deployment using PyTorch, Hugging Face,
+            FastAPI, MLflow, and AWS.
           </p>
 
-          <div class="hero-actions">
+          <div class="actions">
             <a class="btn btn-primary" href="#projects">View Projects</a>
             <a class="btn btn-secondary" href="#experience">Work Experience</a>
 
-            <!-- Resume link -->
+            <!-- Replace with your resume link if needed -->
             <a class="btn btn-outline"
                href="https://drive.google.com/file/d/1fxrEP1DpUbEnzXlh2QanDSJ1_9rveEtW/view?usp=drive_link"
                target="_blank" rel="noopener">
-              Download Resume
+              Resume
             </a>
           </div>
 
-          <div class="hero-meta">
-            <div class="meta-item">
-              <span class="meta-label">Location</span>
-              <span class="meta-value">New Jersey, USA</span>
-            </div>
-            <div class="meta-item">
-              <span class="meta-label">Email</span>
-              <a class="meta-value" href="mailto:bairaakshitha@gmail.com">bairaakshitha@gmail.com</a>
-            </div>
-            <div class="meta-item">
-              <span class="meta-label">Phone</span>
-              <a class="meta-value" href="tel:+12039017300">+1 (203) 901-7300</a>
-            </div>
-          </div>
-
-          <div class="social-row" aria-label="Social links">
+          <div class="tags" style="margin-top:10px">
             <!-- Replace LinkedIn/ResearchGate with your real links -->
             <a class="chip" href="https://www.linkedin.com/in/YOUR-LINKEDIN-ID/" target="_blank" rel="noopener">LinkedIn</a>
             <a class="chip" href="https://github.com/BairaAkshitha" target="_blank" rel="noopener">GitHub</a>
             <a class="chip" href="https://www.researchgate.net/profile/YOUR-RESEARCHGATE-NAME" target="_blank" rel="noopener">ResearchGate</a>
+            <span class="chip">New Jersey, USA</span>
+          </div>
+
+          <div class="meta">
+            <div class="card">
+              <span class="label">Email</span>
+              <a class="value" href="mailto:bairaakshitha@gmail.com">bairaakshitha@gmail.com</a>
+            </div>
+            <div class="card">
+              <span class="label">Phone</span>
+              <a class="value" href="tel:+12039017300">+1 (203) 901-7300</a>
+            </div>
+            <div class="card">
+              <span class="label">Focus</span>
+              <span class="value">GenAI • Medical Imaging • Production ML</span>
+            </div>
           </div>
         </div>
 
-        <aside class="hero-right" aria-label="Highlights">
-          <div class="panel">
-            <h2 class="panel-title">Highlights</h2>
-            <ul class="bullets">
-              <li>Improved recall on critical classes by <strong>15%</strong> via experimentation + threshold calibration.</li>
-              <li>Built scalable batch inference + lightweight serving workflows for reliable prediction delivery.</li>
-              <li>Extended diffusion-based dose prediction with distance-aware conditioning for medical imaging.</li>
-              <li>Developed an LLM-powered document summarization service with FastAPI APIs.</li>
-            </ul>
-          </div>
+        <aside class="panel">
+          <h3>Highlights</h3>
+          <ul>
+            <li>Improved recall on critical classes by <b>15%</b> using experimentation + threshold calibration.</li>
+            <li>Built scalable batch inference + lightweight serving workflows for reliable prediction delivery.</li>
+            <li>Extended diffusion-based radiotherapy dose prediction with distance-aware conditioning.</li>
+            <li>Built an LLM-powered summarization service with FastAPI APIs and long-document chunking.</li>
+          </ul>
 
-          <div class="panel">
-            <h2 class="panel-title">Education</h2>
-            <p class="panel-line"><strong>M.S. Artificial Intelligence</strong> — Yeshiva University (Jan 2024 – Dec 2025)</p>
-            <p class="panel-line"><strong>B.Tech Computer Science</strong> — Mahatma Gandhi University (Aug 2019 – May 2023)</p>
-          </div>
+          <div style="height:12px"></div>
+
+          <h3>Education</h3>
+          <p class="muted" style="margin:0 0 8px"><b>M.S. Artificial Intelligence</b> — Yeshiva University (Jan 2024 – Dec 2025)</p>
+          <p class="muted" style="margin:0"><b>B.Tech Computer Science</b> — Mahatma Gandhi University (Aug 2019 – May 2023)</p>
         </aside>
       </div>
     </section>
 
     <!-- EXPERIENCE -->
-    <section class="section" id="experience">
+    <section id="experience">
       <div class="container">
         <div class="section-head">
           <h2>Professional Experience</h2>
@@ -126,50 +362,50 @@
         </div>
 
         <div class="timeline">
-          <article class="t-item">
-            <div class="t-dot" aria-hidden="true"></div>
-            <div class="t-content">
+          <div class="role">
+            <div class="pin" aria-hidden="true"></div>
+            <div>
               <h3>AI/ML Engineer — Prevail Infotech Inc</h3>
-              <p class="t-sub">Utah, USA • Jul 2024 – Present</p>
-              <ul class="bullets">
+              <p class="sub">Utah, USA • Jul 2024 – Present</p>
+              <ul>
                 <li>Led end-to-end development of AI-based risk scoring pipelines from requirements to production-ready scoring.</li>
-                <li>Built structured experimentation for architecture comparison, feature selection, and threshold calibration; improved recall on critical classes by <strong>15%</strong> while maintaining balanced precision.</li>
+                <li>Built structured experimentation for model comparison, feature selection, and threshold calibration; improved recall by <b>15%</b> while maintaining balanced precision.</li>
                 <li>Implemented interpretability and class-wise error diagnostics to improve transparency and stakeholder trust.</li>
-                <li>Delivered scalable batch inference and lightweight serving workflows to improve internal response times.</li>
+                <li>Delivered scalable batch inference + lightweight serving workflows to improve internal response times.</li>
               </ul>
             </div>
-          </article>
+          </div>
 
-          <article class="t-item">
-            <div class="t-dot" aria-hidden="true"></div>
-            <div class="t-content">
+          <div class="role">
+            <div class="pin" aria-hidden="true"></div>
+            <div>
               <h3>Machine Learning Engineer — Asics Technologies</h3>
-              <p class="t-sub">Hyderabad, India • Jun 2022 – Dec 2023</p>
-              <ul class="bullets">
-                <li>Developed supervised ML models (LogReg, Random Forest, XGBoost) for structured datasets (50K+ records); improved validation F1-score by <strong>12%</strong> via feature engineering and tuning.</li>
-                <li>Built end-to-end pipelines: ingestion, preprocessing, transformations, validation, and evaluation (Precision/Recall/F1, ROC-AUC, MAE/RMSE).</li>
-                <li>Automated training + inference and exposed prediction endpoints via FastAPI for internal testing workflows.</li>
+              <p class="sub">Hyderabad, India • Jun 2022 – Dec 2023</p>
+              <ul>
+                <li>Developed supervised ML models (LogReg, Random Forest, XGBoost) and improved validation F1 by <b>12%</b> through feature engineering + tuning.</li>
+                <li>Built end-to-end pipelines: ingestion, preprocessing, transformations, validation, and evaluation (F1, ROC-AUC, MAE/RMSE).</li>
+                <li>Automated training + inference workflows; exposed endpoints via FastAPI for internal testing.</li>
               </ul>
             </div>
-          </article>
+          </div>
 
-          <article class="t-item">
-            <div class="t-dot" aria-hidden="true"></div>
-            <div class="t-content">
+          <div class="role">
+            <div class="pin" aria-hidden="true"></div>
+            <div>
               <h3>Machine Learning Intern — Octagen Software Solutions Pvt. Ltd.</h3>
-              <p class="t-sub">Hyderabad, India • May 2022 – Jun 2022</p>
-              <ul class="bullets">
-                <li>Built an end-to-end ML pipeline for air quality prediction: preprocessing, feature engineering, regression modeling, validation, and residual analysis.</li>
-                <li>Developed an AQI forecasting system using Scikit-learn + Pandas; achieved strong predictive performance (<strong>R² ≈ 0.97</strong>).</li>
+              <p class="sub">Hyderabad, India • May 2022 – Jun 2022</p>
+              <ul>
+                <li>Built an end-to-end ML pipeline for air quality prediction including preprocessing, feature engineering, regression modeling, and residual analysis.</li>
+                <li>Developed an AQI forecasting system using Scikit-learn + Pandas; achieved strong performance (<b>R² ≈ 0.97</b>).</li>
               </ul>
             </div>
-          </article>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- PROJECTS -->
-    <section class="section" id="projects">
+    <section id="projects">
       <div class="container">
         <div class="section-head">
           <h2>Featured Projects</h2>
@@ -177,95 +413,88 @@
         </div>
 
         <div class="grid cards-3">
-          <article class="card">
+          <div class="cardx">
             <h3>Dose Prediction in Radiotherapy (DoseDiff + CTMamba)</h3>
             <p class="muted">
               Extended diffusion-based dose prediction on OpenKBP with distance-aware conditioning and a Mamba-based hybrid encoder,
               improving clinical consistency of DVH metrics and dose visualizations.
             </p>
-            <div class="tag-row">
+            <div class="tags">
               <span class="tag">PyTorch</span><span class="tag">Diffusion</span><span class="tag">Medical Imaging</span><span class="tag">Mamba</span>
             </div>
-            <div class="card-footer">
-              <span class="hint">Add: screenshots of dose maps / DVH plots</span>
-            </div>
-          </article>
+          </div>
 
-          <article class="card">
+          <div class="cardx">
             <h3>Research Paper Summarizer (LLM/Transformers)</h3>
             <p class="muted">
               Built a multi-document summarization + paraphrasing service with FastAPI APIs; supports long-document chunking,
-              domain-specific summaries, and tone control for presentations and documentation.
+              domain-specific summaries, and tone control for documentation and presentations.
             </p>
-            <div class="tag-row">
+            <div class="tags">
               <span class="tag">Transformers</span><span class="tag">Hugging Face</span><span class="tag">FastAPI</span><span class="tag">NLP</span>
             </div>
-            <div class="card-footer">
-              <span class="hint">Add: demo GIF / API endpoint examples</span>
-            </div>
-          </article>
+          </div>
 
-          <article class="card">
+          <div class="cardx">
             <h3>Brain Tumor Segmentation (U-Net)</h3>
             <p class="muted">
-              Developed U-Net segmentation pipeline for MRI scans with preprocessing and augmentation; evaluated using Dice and IoU
-              to improve clinical relevance and consistency.
+              Developed an end-to-end MRI segmentation pipeline with preprocessing and augmentation; evaluated with Dice and IoU
+              for clinically relevant tumor subregions.
             </p>
-            <div class="tag-row">
+            <div class="tags">
               <span class="tag">U-Net</span><span class="tag">Computer Vision</span><span class="tag">Dice/IoU</span><span class="tag">MRI</span>
             </div>
-            <div class="card-footer">
-              <span class="hint">Add: segmentation overlay images</span>
-            </div>
-          </article>
+          </div>
         </div>
 
-        <div class="grid cards-2 mt">
-          <article class="card">
+        <div style="height:12px"></div>
+
+        <div class="grid cards-2">
+          <div class="cardx">
             <h3>Dog Heart Image Classification (CNN)</h3>
             <p class="muted">
-              Built and evaluated CNN models for veterinary imaging classification with augmentation and preprocessing; explored explainability techniques.
+              Built CNN models for veterinary imaging classification with preprocessing and augmentation; evaluated performance and improved generalization.
             </p>
-            <div class="tag-row">
+            <div class="tags">
               <span class="tag">CNN</span><span class="tag">Imaging</span><span class="tag">Augmentation</span>
             </div>
-          </article>
+          </div>
 
-          <article class="card">
+          <div class="cardx">
             <h3>Bird Sound Spectrogram Segmentation (U-Net)</h3>
             <p class="muted">
-              Converted audio recordings to spectrograms and trained U-Net models to localize vocalization regions; improved robustness with masking augmentations.
+              Converted audio to spectrograms and trained U-Net models to localize vocalization regions; improved robustness with masking augmentations.
             </p>
-            <div class="tag-row">
+            <div class="tags">
               <span class="tag">Audio</span><span class="tag">Spectrograms</span><span class="tag">U-Net</span>
             </div>
-          </article>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- SKILLS -->
-    <section class="section" id="skills">
+    <section id="skills">
       <div class="container">
         <div class="section-head">
           <h2>Skills</h2>
-          <p class="muted">A focused stack aligned with production ML, GenAI, and research workflows.</p>
+          <p class="muted">Focused stack for production ML, GenAI, and research workflows.</p>
         </div>
 
-        <div class="grid skills-2">
-          <div class="panel">
+        <div class="grid cards-2">
+          <div class="cardx">
             <h3>Core</h3>
-            <ul class="bullets">
+            <ul>
               <li>Python, SQL</li>
               <li>Machine Learning, Deep Learning, Generative AI</li>
-              <li>LLMs, RAG, Prompt Engineering, Evaluation</li>
+              <li>LLMs, RAG Pipelines, Prompt Engineering, Evaluation</li>
               <li>Computer Vision, Medical Imaging</li>
             </ul>
           </div>
 
-          <div class="panel">
+          <div class="cardx">
             <h3>Frameworks & Tools</h3>
-            <ul class="bullets">
+            <ul>
               <li>PyTorch, TensorFlow, Scikit-learn</li>
               <li>Hugging Face, LangChain</li>
               <li>FastAPI, Docker, Git, MLflow</li>
@@ -277,73 +506,78 @@
     </section>
 
     <!-- CERTIFICATIONS -->
-    <section class="section" id="certifications">
+    <section id="certs">
       <div class="container">
         <div class="section-head">
           <h2>Certifications</h2>
         </div>
 
         <div class="grid cards-2">
-          <div class="card compact">
-            <h3>AWS Certified Machine Learning Engineer – Associate</h3>
-          </div>
-          <div class="card compact">
-            <h3>Hugging Face — Transformers & NLP</h3>
-          </div>
-          <div class="card compact">
-            <h3>HackerRank — SQL</h3>
-          </div>
-          <div class="card compact">
-            <h3>HackerRank — Problem Solving</h3>
-          </div>
+          <div class="cardx"><h3 style="margin:0">AWS Certified Machine Learning Engineer – Associate</h3></div>
+          <div class="cardx"><h3 style="margin:0">Hugging Face — Transformers & NLP</h3></div>
+          <div class="cardx"><h3 style="margin:0">HackerRank — SQL</h3></div>
+          <div class="cardx"><h3 style="margin:0">HackerRank — Problem Solving</h3></div>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section class="section" id="contact">
+    <section id="contact">
       <div class="container">
         <div class="section-head">
           <h2>Contact</h2>
           <p class="muted">If you’re hiring for AI/ML roles or want to collaborate, feel free to reach out.</p>
         </div>
 
-        <div class="contact-card">
-          <div>
-            <p class="contact-line"><strong>Email:</strong> <a href="mailto:bairaakshitha@gmail.com">bairaakshitha@gmail.com</a></p>
-            <p class="contact-line"><strong>Phone:</strong> <a href="tel:+12039017300">+1 (203) 901-7300</a></p>
-            <p class="contact-line"><strong>Location:</strong> New Jersey, USA</p>
+        <div class="panel contact">
+          <div class="left">
+            <p class="muted"><b>Email:</b> <a href="mailto:bairaakshitha@gmail.com">bairaakshitha@gmail.com</a></p>
+            <p class="muted"><b>Phone:</b> <a href="tel:+12039017300">+1 (203) 901-7300</a></p>
+            <p class="muted"><b>Location:</b> New Jersey, USA</p>
           </div>
-
-          <div class="contact-actions">
+          <div class="actions">
             <a class="btn btn-primary"
                href="https://drive.google.com/file/d/1fxrEP1DpUbEnzXlh2QanDSJ1_9rveEtW/view?usp=drive_link"
-               target="_blank" rel="noopener">
-              Resume
-            </a>
+               target="_blank" rel="noopener">Resume</a>
+
             <a class="btn btn-secondary" href="https://www.linkedin.com/in/YOUR-LINKEDIN-ID/" target="_blank" rel="noopener">LinkedIn</a>
             <a class="btn btn-outline" href="https://github.com/BairaAkshitha" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer">
-      <p>© <span id="year"></span> Akshitha Baira</p>
-      <p class="muted">AI Engineer • Machine Learning Engineer • Research Engineer</p>
+  <footer>
+    <div class="container foot">
+      <div>© <span id="y"></span> Akshitha Baira</div>
+      <div>AI Engineer • Machine Learning Engineer • Research Engineer</div>
     </div>
   </footer>
 
   <script>
-    // Faster + subtle splash
-    setTimeout(() => {
-      const splash = document.getElementById("splash");
-      if (splash) splash.classList.add("hide");
-    }, 650);
+    // year
+    document.getElementById("y").textContent = new Date().getFullYear();
 
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // mobile menu toggle
+    const btn = document.getElementById("menuBtn");
+    const menu = document.getElementById("mobileMenu");
+    if (btn && menu){
+      btn.addEventListener("click", () => {
+        const isOpen = menu.style.display === "block";
+        menu.style.display = isOpen ? "none" : "block";
+        btn.setAttribute("aria-expanded", String(!isOpen));
+      });
+
+      // close menu on link click
+      menu.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => {
+          menu.style.display = "none";
+          btn.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
   </script>
 </body>
 </html>
