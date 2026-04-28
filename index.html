@@ -1,854 +1,136 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Akshitha Baira | Gen AI Engineer • ML Engineer</title>
-
-  <meta name="description" content="Akshitha Baira — Gen AI Engineer and ML Engineer building scalable ML systems, deep learning models, and production-ready pipelines." />
-  <meta name="robots" content="index,follow" />
-  <meta name="theme-color" content="#f7f7ff" />
-
-  <!-- Icons -->
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
-<style>
-  :root{
-  /* Softer, professional neutral background */
-  --bg1:#e4e8f2;
-  --bg2:#dde3ee;
-  --bg3:#e8ecf5;
-
-  --text:#0f172a;
-  --muted:#475569;
-
-  /* Slightly toned cards (not pure white) */
-  --card:#f1f5f9;     /* soft light gray */
-  --card2:#e2e8f0;    /* slightly darker layer */
-
-  --line: rgba(15,23,42,.18);
-  --shadow: 0 12px 30px rgba(2,6,23,.10);
-
-  /* Slightly deeper accent */
-  --accent:#4f46e5;
-  --accent2:#0ea5e9;
-
-  --radius: 18px;
-
-  /* Stronger badge contrast */
-  --b1:#dbeafe;
-  --b2:#e0e7ff;
-  --b3:#dcfce7;
-  --b4:#fde68a;
-  --b5:#fbcfe8;
-  --b6:#e2e8f0;
-}
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color:var(--text);
-      line-height:1.65;
-      background:
-        radial-gradient(900px 550px at 12% -10%, rgba(109,94,252,.22), transparent 55%),
-        radial-gradient(800px 520px at 88% 10%, rgba(44,198,255,.20), transparent 52%),
-        radial-gradient(700px 500px at 50% 110%, rgba(255,162,91,.18), transparent 55%),
-        linear-gradient(180deg, var(--bg1), var(--bg2) 45%, var(--bg3));
-      overflow-x:hidden;
-    }
-
-    a{color:inherit;text-decoration:none}
-    a:hover{opacity:.9}
-
-    .container{width:min(1120px, 92%); margin:0 auto}
-    .muted{color:var(--muted)}
-    .small{font-size:13px}
-    .mt12{margin-top:12px}
-    .mt16{margin-top:16px}
-    .mt20{margin-top:20px}
-
-    /* ===== Top strip ===== */
-    .topstrip{
-      position:sticky;
-      top:0;
-      z-index:999;
-      background: rgba(255,255,255,.55);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-    }
-    .strip-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding: 10px 0;
-      flex-wrap:wrap;
-    }
-    .strip-left,.strip-right{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.65);
-      font-size: 13px;
-      color: var(--muted);
-      white-space:nowrap;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 10px 14px;
-      border-radius: 12px;
-      font-weight: 800;
-      font-size: 14px;
-      border: 1px solid transparent;
-      transition: transform .15s ease;
-      white-space:nowrap;
-    }
-    .btn:hover{transform: translateY(-1px)}
-    .btn-primary{
-      background: linear-gradient(135deg, var(--accent), #7d8cff);
-      box-shadow: 0 14px 34px rgba(109,94,252,.18);
-      color:#fff;
-    }
-    .btn-ghost{
-      background: rgba(255,255,255,.7);
-      border-color: var(--line);
-      color: var(--text);
-    }
-
-    /* ===== Nav ===== */
-    .nav{
-      padding: 10px 0 12px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .nav a{
-      color: var(--muted);
-      font-size: 13px;
-      padding: 6px 10px;
-      border-radius: 10px;
-      border: 1px solid transparent;
-    }
-    .nav a:hover{
-      color: var(--text);
-      border-color: var(--line);
-      background: rgba(255,255,255,.65);
-    }
-
-    /* ===== Cards / section ===== */
-    section{padding: 30px 0}
-    .card{
-      border: 1px solid var(--line);
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 18px;
-      box-shadow: var(--shadow);
-    }
-
-    .section-head{margin-bottom: 12px}
-    .section-head h2{
-      margin:0 0 6px;
-      font-size: 22px;
-      letter-spacing: -0.2px;
-    }
-    .section-head p{margin:0; color: var(--muted)}
-
-    /* ===== Hero ===== */
-    .hero{padding: 34px 0 20px}
-    .hero-bg{
-      border-radius: 22px;
-      border: 1px solid var(--line);
-      background:
-        linear-gradient(135deg, rgba(109,94,252,.14), rgba(44,198,255,.12)),
-        url("https://spotlight.leeds.ac.uk/leeds-magazine-2025/assets/84Ab5WS4F3/ai_extended-1-1500x961.png");
-      background-size: cover;
-      background-position: center;
-      overflow:hidden;
-      position:relative;
-    }
-    .hero-overlay{
-      position:absolute; inset:0;
-      background: linear-gradient(90deg, rgba(255,255,255,.88), rgba(255,255,255,.70), rgba(255,255,255,.40));
-    }
-    .hero-inner{position:relative; padding: 26px}
-
-    .kicker{
-      display:inline-flex;
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.8);
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 12px;
-    }
-    h1{
-      margin:0 0 10px;
-      font-size: clamp(28px, 3.7vw, 46px);
-      line-height:1.12;
-      letter-spacing: -0.5px;
-    }
-    .name{
-      display:inline-block;
-      padding: 0 10px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, rgba(109,94,252,.18), rgba(44,198,255,.14));
-      border: 1px solid var(--line);
-    }
-    .lead{
-      margin:0 0 14px;
-      color: var(--muted);
-      max-width: 78ch;
-    }
-    .hero-actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
-
-    /* ===== Layout grids ===== */
-    .grid{display:grid; gap: 12px}
-    .two{grid-template-columns: repeat(2, minmax(0,1fr))}
-    .three{grid-template-columns: repeat(3, minmax(0,1fr))}
-
-    /* ===== Education logo watermark ===== */
-    .edu-card{
-      position:relative;
-      overflow:hidden;
-      background: linear-gradient(180deg, var(--card), var(--card2));
-    }
-    .edu-card::before{
-      content:"";
-      position:absolute;
-      inset:-30px;
-      background-repeat:no-repeat;
-      background-position:right 16px center;
-      background-size: 220px auto;
-      opacity:.10;
-      filter: grayscale(100%);
-      pointer-events:none;
-    }
-    .edu-yu::before{
-      background-image:url("https://m-production.myliaison.com/school_images/Yeshiva%20University.webp");
-    }
-    .edu-mgu::before{
-      background-image:url("https://upload.wikimedia.org/wikipedia/en/1/11/Mahatma_Gandhi_University%2C_Nalgonda_logo.png");
-      background-size: 180px auto;
-    }
-
-    /* ===== Badges (colored tech backgrounds) ===== */
-    .badges{display:flex; gap:8px; flex-wrap:wrap; margin-top: 10px}
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      font-size: 12px;
-      color: #0f172a;
-      background: var(--b6);
-      white-space:nowrap;
-    }
-    .b1{background: var(--b1)}
-    .b2{background: var(--b2)}
-    .b3{background: var(--b3)}
-    .b4{background: var(--b4)}
-    .b5{background: var(--b5)}
-
-    /* ===== Experience ===== */
-    .role{
-      padding: 18px;
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, var(--card), var(--card2));
-      box-shadow: var(--shadow);
-    }
-    .role h3{margin:0 0 4px; font-size: 16px}
-    .meta{color: var(--muted); font-size: 13px}
-    .bullets{margin: 10px 0 0; padding-left: 18px; color: var(--muted)}
-    .bullets li{margin-bottom: 8px}
-    .bullets b{color: #0f172a}
-
-    /* ===== Projects ===== */
-    .project{
-      overflow:hidden;
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, var(--card), var(--card2));
-      box-shadow: var(--shadow);
-    }
-    .project-img{
-      height: 175px;
-      border-bottom: 1px solid var(--line);
-      background-size: cover;
-      background-position: center;
-    }
-    .project-body{padding: 16px}
-    .project h3{margin:0 0 8px; font-size: 16px}
-    .project p{margin:0 0 10px; color: var(--muted); font-size: 14px}
-    .ach{margin: 10px 0 0; padding-left: 18px; color: var(--muted); font-size: 14px}
-    .ach li{margin-bottom: 8px}
-
-    /* ===== Skills rows ===== */
-    .skillrow{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding: 14px 16px;
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      background: rgba(255,255,255,.8);
-    }
-    .skillrow b{font-size: 14px}
-    .skillrow .level{font-weight: 900}
-    .s1{background: linear-gradient(135deg, rgba(109,94,252,.14), rgba(255,255,255,.85));}
-    .s2{background: linear-gradient(135deg, rgba(44,198,255,.14), rgba(255,255,255,.85));}
-    .s3{background: linear-gradient(135deg, rgba(34,197,94,.14), rgba(255,255,255,.85));}
-    .s4{background: linear-gradient(135deg, rgba(251,146,60,.14), rgba(255,255,255,.85));}
-    .s5{background: linear-gradient(135deg, rgba(244,63,94,.12), rgba(255,255,255,.85));}
-
-    /* ===== Footer ===== */
-    footer{
-      padding: 20px 0;
-      border-top: 1px solid var(--line);
-      background: rgba(255,255,255,.65);
-      color: var(--muted);
-    }
-    .foot{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    @media (max-width: 980px){
-      .two,.three{grid-template-columns: 1fr}
-      .edu-card::before{background-position:center; opacity:.08}
-      .pill{font-size:12px}
-      .btn{font-size:13px}
-      .hero-inner{padding: 18px}
-      .hero-overlay{background: linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,255,255,.70));}
-    }
-
-    /* =========================
-       ✅ DAY/NIGHT MODE ADDITION
-       ========================= */
-
-    /* =========================
-   ✅ DAY/NIGHT MODE (UPDATED — readable, not too dark)
-   ========================= */
-
-.theme-toggle{
-  cursor:pointer;
-  border:none;
-  outline:none;
-  background: rgba(255,255,255,.65);
-}
-
-/* ✅ Softer charcoal background (not black) */
-body.dark-mode{
-  background: linear-gradient(180deg, #111827, #0f172a 60%, #0b1220);
-  color:#e5e7eb;
-}
-
-/* ✅ Top strip readable */
-body.dark-mode .topstrip{
-  background: rgba(17,24,39,.72);
-  border-bottom: 1px solid rgba(226,232,240,.14);
-}
-
-/* ✅ Pills + links readable */
-body.dark-mode .pill{
-  background: rgba(30,41,59,.65);
-  border: 1px solid rgba(226,232,240,.14);
-  color: #e5e7eb;
-}
-
-/* ✅ Nav visible */
-body.dark-mode .nav a{ color:#cbd5e1; }
-body.dark-mode .nav a:hover{
-  color:#ffffff;
-  background: rgba(255,255,255,.08);
-  border-color: rgba(226,232,240,.18);
-}
-
-/* ✅ Buttons visible */
-body.dark-mode .btn-ghost{
-  background: rgba(30,41,59,.55);
-  border-color: rgba(226,232,240,.14);
-  color: #f8fafc;
-}
-
-/* ✅ Cards brighter so text is visible */
-body.dark-mode .card,
-body.dark-mode .role,
-body.dark-mode .project{
-  background: linear-gradient(180deg, rgba(30,41,59,.92), rgba(15,23,42,.92));
-  border: 1px solid rgba(226,232,240,.14);
-}
-
-/* ✅ Headings were “gone” — force them visible */
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3{
-  color:#f8fafc !important;
-}
-body.dark-mode .section-head h2{
-  color:#f8fafc !important;
-}
-
-/* ✅ Text colors */
-body.dark-mode .muted,
-body.dark-mode .meta,
-body.dark-mode .bullets,
-body.dark-mode .project p,
-body.dark-mode .ach{
-  color:#cbd5e1;
-}
-body.dark-mode .bullets b{
-  color:#ffffff;
-}
-
-/* ✅ Hero overlay — not washed out */
-body.dark-mode .hero-overlay{
-  background: linear-gradient(90deg, rgba(2,6,23,.35), rgba(2,6,23,.18), rgba(2,6,23,.06));
-}
-
-/* ✅ Badges readable in dark mode */
-body.dark-mode .badge{
-  color:#f8fafc;
-  border: 1px solid rgba(226,232,240,.12);
-  background: rgba(148,163,184,.16);
-}
-body.dark-mode .b1{background: rgba(59,130,246,.22)}
-body.dark-mode .b2{background: rgba(129,140,248,.22)}
-body.dark-mode .b3{background: rgba(34,197,94,.20)}
-body.dark-mode .b4{background: rgba(245,158,11,.20)}
-body.dark-mode .b5{background: rgba(244,63,94,.20)}
-body.dark-mode .b6{background: rgba(148,163,184,.18)}
-
-/* ✅ Footer readable */
-body.dark-mode footer{
-  background: rgba(17,24,39,.72);
-  border-top: 1px solid rgba(226,232,240,.14);
-  color:#cbd5e1;
-}
-  </style>
-</head>
-
-<body>
-  <!-- TOP: Contact + Location + Resume button -->
-  <div class="topstrip">
-    <div class="container">
-      <div class="strip-inner">
-        <div class="strip-left">
-          <span class="pill"><i class="fa-solid fa-location-dot"></i> New Jersey, USA</span>
-          <a class="pill" href="mailto:bairaakshitha@gmail.com"><i class="fa-solid fa-envelope"></i> bairaakshitha@gmail.com</a>
-          <a class="pill" href="tel:+12039017300"><i class="fa-solid fa-phone"></i> +1 (203) 901-7300</a>
-        </div>
-
-        <div class="strip-right">
-          <a class="pill" href="https://www.linkedin.com/in/akshitha-baira-48a11b345/" target="_blank" rel="noopener">
-            <i class="fa-brands fa-linkedin"></i> LinkedIn
-          </a>
-          <a class="pill" href="https://github.com/akshithabaira" target="_blank" rel="noopener">
-            <i class="fa-brands fa-github"></i> GitHub
-          </a>
-          <a class="pill" href="https://www.researchgate.net/profile/Akshitha-Baira" target="_blank" rel="noopener">
-            <i class="fa-brands fa-researchgate"></i> ResearchGate
-          </a>
-
-          <a class="btn btn-primary" href="https://drive.google.com/file/d/1BBXoBUHUl0DkNy7ox5TufYc7jlElL1Cl/view?usp=drive_link">
-            <i class="fa-solid fa-file-arrow-down"></i> Resume
-          </a>
-
-          <!-- ✅ THEME TOGGLE BUTTON (ADDED) -->
-          <button class="pill theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
-            <i class="fa-solid fa-moon"></i>
-          </button>
-        </div>
-      </div>
-
-      <div class="nav">
-        <a href="#summary">Summary</a>
-        <a href="#education">Education</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#certifications">Certifications</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-bg">
-        <div class="hero-overlay"></div>
-        <div class="hero-inner">
-          <div class="kicker">Gen AI Engineer • Machine Learning Engineer • AI Engineer</div>
-          <h1>Hello, I’m <span class="name">Akshitha Baira</span></h1>
-
-          <p class="lead">
-            I’m a Gen AI Engineer and ML Engineer with 3+ years of experience building end-to-end machine learning solutions —
-            from data preparation and modeling to evaluation and deployment. I work on deep learning, NLP/LLM workflows, and
-            medical imaging systems, focusing on measurable impact and clean production delivery.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#projects"><i class="fa-solid fa-diagram-project"></i> View Projects</a>
-            <a class="btn btn-ghost" href="#experience"><i class="fa-solid fa-briefcase"></i> Work Experience</a>
-            <a class="btn btn-ghost" href="#skills"><i class="fa-solid fa-layer-group"></i> Skills</a>
-          </div>
-
-          <!-- ✅ Removed Focus/Strength/Location boxes as requested -->
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROFESSIONAL SUMMARY -->
-  <section id="summary">
-    <div class="container">
-      <div class="section-head">
-        <h2>Professional Summary</h2>
-      </div>
-
-      <div class="card">
-        <p style="margin:0; color: var(--muted);">
-          Machine Learning Engineer and Generative AI specialist with industry experience designing and deploying production-grade AI systems at enterprise scale. Architected Retrieval-Augmented Generation (RAG) platforms indexing 50K+ documents and serving 5K+ daily requests with sub-300ms latency. Improved predictive model accuracy by up to 22% through advanced feature engineering and hyperparameter optimization, and reduced hallucination rates in LLM systems by 18% via retrieval re-ranking and structured evaluation frameworks. Proven expertise across the full ML lifecycle — from large-scale data processing (1M+ records) and transformer fine-tuning to containerized deployment using FastAPI, Docker, MLflow, and AWS. Strong ability to translate research-driven innovations into reliable, scalable AI solutions for real-world enterprise applications.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education">
-    <div class="container">
-      <div class="section-head">
-        <h2>Education</h2>
-      </div>
-
-      <div class="grid two">
-        <div class="card edu-card edu-yu">
-          <h3>Yeshiva University — M.S. Artificial Intelligence</h3>
-          <p class="muted small" style="margin:0">New York, USA • Jan 2024 – Dec 2025</p>
-        </div>
-
-        <div class="card edu-card edu-mgu">
-          <h3>Mahatma Gandhi University — B.Tech Computer Science</h3>
-          <p class="muted small" style="margin:0">India • Aug 2019 – May 2023</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="container">
-      <div class="section-head">
-        <h2>Work Experience</h2>
-      </div>
-
-      <div class="grid" style="gap:14px">
-        <div class="role">
-          <h3>AI/ML Engineer — Prevail Infotech Inc</h3>
-          <div class="meta">Utah, USA • Jul 2024 – Present</div>
-
-          <ul class="bullets">
-            <li>
-              Built end-to-end ML pipelines using <b>Python</b>, <b>Scikit-learn</b>, and structured experimentation
-              (feature selection, model comparison, threshold tuning).
-            </li>
-            <li>
-              Improved model performance using <b>Precision/Recall/F1</b> and <b>ROC-AUC</b>, with class-wise error analysis for reliability.
-            </li>
-            <li>
-              Implemented scalable inference workflows and integrations using <b>FastAPI</b>, <b>Docker</b>, and <b>Git</b>.
-            </li>
-            <li>
-              Worked with <b>SQL</b>/<b>PostgreSQL</b> extraction and preprocessing for model-ready datasets.
-            </li>
-          </ul>
-
-          <div class="badges">
-            <span class="badge b1">Python</span>
-            <span class="badge b2">Scikit-learn</span>
-            <span class="badge b3">FastAPI</span>
-            <span class="badge b4">Docker</span>
-            <span class="badge b5">SQL / PostgreSQL</span>
-            <span class="badge b6">Model Evaluation</span>
-          </div>
-        </div>
-
-        <div class="role">
-          <h3>Machine Learning Engineer — Asics Technologies</h3>
-          <div class="meta">Hyderabad, India • Jun 2022 – Dec 2023</div>
-
-          <ul class="bullets">
-            <li>
-              Developed ML models using <b>Logistic Regression</b>, <b>Random Forest</b>, and <b>XGBoost</b>, improving performance with
-              <b>feature engineering</b> and <b>hyperparameter tuning</b>.
-            </li>
-            <li>
-              Built reusable training/evaluation pipelines with <b>Pandas</b>, <b>NumPy</b>, and metrics (F1, ROC-AUC, MAE/RMSE).
-            </li>
-            <li>
-              Created internal API endpoints using <b>FastAPI</b> for model testing and integration.
-            </li>
-          </ul>
-
-          <div class="badges">
-            <span class="badge b1">XGBoost</span>
-            <span class="badge b2">Random Forest</span>
-            <span class="badge b3">FastAPI</span>
-            <span class="badge b4">Pandas / NumPy</span>
-            <span class="badge b5">Feature Engineering</span>
-            <span class="badge b6">Evaluation Metrics</span>
-          </div>
-        </div>
-
-        <div class="role">
-          <h3>Machine Learning Intern — Octagen Software Solutions</h3>
-          <div class="meta">Hyderabad, India • May 2022 – Jun 2022</div>
-
-          <ul class="bullets">
-            <li>
-              Built an AQI forecasting workflow using <b>Python</b>, <b>Pandas</b>, and <b>Scikit-learn</b> including cleaning, feature creation, and regression evaluation.
-            </li>
-            <li>
-              Implemented multiple regression models such as <b>Linear Regression</b> and <b>Random Forest Regressor</b>, comparing performance using <b>MAE</b>, <b>MSE</b>, and <b>R² score</b>.
-            </li>
-            <li>
-              Conducted exploratory data analysis (EDA) using <b>Matplotlib</b> and <b>Seaborn</b> to identify trends and correlations in air quality data.
-            </li>
-            <li>
-              Documented model performance findings and presented insights to the team, improving understanding of predictive behavior and limitations.
-            </li>
-          </ul>
-
-          <div class="badges">
-            <span class="badge b1">Python</span>
-            <span class="badge b2">Scikit-learn</span>
-            <span class="badge b4">Regression</span>
-            <span class="badge b6">Forecasting</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="container">
-      <div class="section-head">
-        <h2>Projects</h2>
-      </div>
-
-      <div class="grid three">
-        <article class="project">
-          <div class="project-img" style="background-image:
-            url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR47qkkZBu9F-1weaz9SE1TmOIO32mgWtj1UA&s');"></div>
-          <div class="project-body">
-            <h3>Dose Prediction in Radiotherapy (DoseDiff + CTMamba)</h3>
-            <p>
-              Improved diffusion-based dose prediction by refining noise schedules and denoising behavior using <b>PyTorch</b>.
-              Focused on evaluation stability and clinically realistic outputs.
-            </p>
-            <ul class="ach">
-              <li>Refined diffusion training behavior for improved stability.</li>
-              <li>Built evaluation workflow for consistent comparison.</li>
-              <li>Focused on medical imaging realism and reliability.</li>
-            </ul>
-
-            <div class="badges">
-              <span class="badge b1">PyTorch</span>
-              <span class="badge b2">Diffusion</span>
-              <span class="badge b3">Medical Imaging</span>
-              <span class="badge b6">Evaluation</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project">
-          <div class="project-img" style="background-image:
-            url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVdBJgJZL9Rehn8XZ6UKSN2RPRNOn6gs2i0g&s');"></div>
-          <div class="project-body">
-            <h3>Research Paper Summarizer (Transformers + FastAPI)</h3>
-            <p>
-              Built an NLP system for summarizing long documents using <b>Transformers</b> and <b>Hugging Face</b>, exposed via <b>FastAPI</b>.
-            </p>
-            <ul class="ach">
-              <li>Handled long documents with chunking and clean outputs.</li>
-              <li>API-first design for easy usage and integration.</li>
-              <li>Optimized for quick comprehension of research content.</li>
-            </ul>
-
-            <div class="badges">
-              <span class="badge b1">Transformers</span>
-              <span class="badge b2">Hugging Face</span>
-              <span class="badge b3">FastAPI</span>
-              <span class="badge b6">NLP</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project">
-          <div class="project-img" style="background-image:
-            url('https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41598-020-74419-9/MediaObjects/41598_2020_74419_Fig2_HTML.jpg');"></div>
-          <div class="project-body">
-            <h3>Brain Tumor Segmentation (U-Net)</h3>
-            <p>
-              Implemented an end-to-end segmentation pipeline using <b>U-Net</b> with evaluation using <b>Dice/IoU</b>.
-            </p>
-            <ul class="ach">
-              <li>End-to-end segmentation pipeline with preprocessing.</li>
-              <li>Used Dice/IoU to measure segmentation quality.</li>
-              <li>Improved robustness via augmentation.</li>
-            </ul>
-
-            <div class="badges">
-              <span class="badge b1">U-Net</span>
-              <span class="badge b2">Computer Vision</span>
-              <span class="badge b3">Dice / IoU</span>
-              <span class="badge b6">Medical Imaging</span>
-            </div>
-          </div>
-        </article>
-      </div>
-  </section>
-
-  <!-- SKILLS -->
-<section id="skills">
-  <div class="container">
-    <div class="section-head">
-      <h2>Skills</h2>
-    </div>
-
-    <!-- Category 1 -->
-    <div class="card mt12">
-      <h3 style="margin:0 0 10px;">Programming</h3>
-      <div class="badges">
-        <span class="badge b1">Python</span>
-        <span class="badge b2">SQL</span>
-        <span class="badge b3">C</span>
-        <span class="badge b4">C++</span>
-        <span class="badge b5">Java</span>
-        <span class="badge b6">JavaScript</span>
-        <span class="badge b2">HTML</span>
-        <span class="badge b3">CSS</span>
-      </div>
-    </div>
-
-    <!-- Category 2 -->
-    <div class="card mt12">
-      <h3 style="margin:0 0 10px;">AI / ML</h3>
-      <div class="badges">
-        <span class="badge b1">Machine Learning</span>
-        <span class="badge b2">Deep Learning</span>
-        <span class="badge b3">Generative AI</span>
-        <span class="badge b4">LLMs</span>
-        <span class="badge b5">Model Fine-tuning</span>
-        <span class="badge b6">RAG Pipelines</span>
-        <span class="badge b2">NLP</span>
-        <span class="badge b3">Computer Vision</span>
-        <span class="badge b4">Prompt Engineering</span>
-      </div>
-    </div>
-
-    <!-- Category 3 -->
-    <div class="card mt12">
-      <h3 style="margin:0 0 10px;">Libraries & Frameworks</h3>
-      <div class="badges">
-        <span class="badge b1">PyTorch</span>
-        <span class="badge b2">TensorFlow</span>
-        <span class="badge b3">Scikit-learn</span>
-        <span class="badge b4">Hugging Face</span>
-        <span class="badge b5">LangChain</span>
-      </div>
-    </div>
-
-    <!-- Category 4 -->
-    <div class="card mt12">
-      <h3 style="margin:0 0 10px;">Tools / Analytics</h3>
-      <div class="badges">
-        <span class="badge b1">Excel</span>
-        <span class="badge b2">Jupyter</span>
-        <span class="badge b3">Git</span>
-        <span class="badge b4">VS Code</span>
-        <span class="badge b5">Docker</span>
-        <span class="badge b6">FastAPI</span>
-        <span class="badge b2">MLflow</span>
-      </div>
-    </div>
-
-    <!-- Category 5 -->
-    <div class="card mt12">
-      <h3 style="margin:0 0 10px;">Cloud & Databases</h3>
-      <div class="badges">
-        <span class="badge b1">AWS</span>
-        <span class="badge b2">MySQL</span>
-        <span class="badge b3">PostgreSQL</span>
-        <span class="badge b4">MongoDB</span>
-        <span class="badge b5">ETL Pipelines</span>
-      </div>
-    </div>
-</section>
-
-  <!-- CERTIFICATIONS -->
-  <section id="certifications">
-    <div class="container">
-      <div class="section-head">
-        <h2>Certifications</h2>
-      </div>
-
-      <div class="grid two">
-        <div class="card"><h3 style="margin:0">AWS Certified Machine Learning Engineer – Associate</h3></div>
-        <div class="card"><h3 style="margin:0">Hugging Face — Transformers & NLP</h3></div>
-        <div class="card"><h3 style="margin:0">SQL — HackerRank</h3></div>
-        <div class="card"><h3 style="margin:0">Problem Solving — HackerRank</h3></div>
-      </div>
-
-      <!-- ✅ Removed the "Links" card at the end as requested -->
-    </div>
-  </section>
-
-  <footer>
-    <div class="container foot">
-      <div>© <span id="year"></span> Akshitha Baira</div>
-      <div>Gen AI Engineer • ML Engineer • AI Engineer</div>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // ✅ THEME TOGGLE SCRIPT (ADDED) — remembers choice
-    const btn = document.getElementById("themeToggle");
-
-    function setTheme(isDark){
-      document.body.classList.toggle("dark-mode", isDark);
-      if (btn) btn.innerHTML = isDark ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-    }
-
-    // Load saved theme
-    const saved = localStorage.getItem("theme");
-    setTheme(saved === "dark");
-
-    // Toggle on click
-    btn?.addEventListener("click", () => {
-      setTheme(!document.body.classList.contains("dark-mode"));
-    });
-  </script>
-</body>
-</html>
+\documentclass[9pt]{article}
+
+% ----------------- Packages -----------------
+\usepackage[letterpaper, top=0.7cm, bottom=0.7cm, left=1.0cm, right=1.0cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{xcolor}
+
+\pagenumbering{gobble}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1pt}
+\linespread{1.0}
+
+% ----------------- Bullet Spacing -----------------
+\setlist[itemize]{leftmargin=*, itemsep=0pt, topsep=0pt, parsep=0pt}
+
+% ----------------- Section Style -----------------
+\titleformat{\section}
+  {\normalsize\bfseries}
+  {}{0em}{}
+  [\vspace{1pt}\titlerule]
+
+\titlespacing*{\section}{0pt}{5pt}{3pt}
+
+% ================= DOCUMENT =================
+\begin{document}
+
+% ----------------- Header -----------------
+\begin{center}
+{\Large \textbf{AKSHITHA BAIRA}}\\[1pt]
+New Jersey, USA $\cdot$ (+1) 203-901-7300 $\cdot$ \href{mailto:bairaakshitha@gmail.com}{bairaakshitha@gmail.com}\\[1pt]
+\href{https://linkedin.com/in/akshitha-baira-48a11b345}{LinkedIn} $\cdot$
+\href{https://bairaakshitha.github.io/personalwebsite/}{Portfolio} $\cdot$
+\href{https://github.com/akshithabaira}{GitHub} $\cdot$
+\href{https://www.researchgate.net/profile/Akshitha-Baira}{ResearchGate}\\[1pt]
+\textbf{AI Engineer \quad|\quad Machine Learning Engineer \quad|\quad Research Engineer}
+\end{center}
+
+\vspace{-4pt}
+
+% ----------------- Summary -----------------
+\section*{PROFESSIONAL SUMMARY}
+\textbf{AI/ML Engineer with 3+ years of experience} designing, building, and deploying \textbf{production-grade AI systems} for \textbf{Fortune 500 financial and healthcare enterprises}. Deep expertise in \textbf{LLM-powered RAG pipelines, Generative AI, transformer-based NLP, and medical imaging AI} — from research and experimentation to scalable cloud deployment on \textbf{AWS and Azure}. Proven track record of improving model recall by \textbf{15\%}, boosting retrieval accuracy by \textbf{35\%}, and reducing time-to-production by \textbf{50\%} through rigorous ML experimentation and CI/CD automation. Passionate about building AI that solves real-world problems at enterprise scale.
+
+% ----------------- Work Experience -----------------
+\section*{WORK EXPERIENCE}
+
+\noindent
+\textbf{Prevail Infotech Inc} \hfill \textbf{July 2024 -- Present} \\
+\textit{AI/ML Engineer $\cdot$ Clients: Prudential Financial \& CVS Health} \hfill Utah, USA
+\begin{itemize}
+    \item Architected and deployed an \textbf{end-to-end AI risk scoring pipeline} for \textbf{Prudential Financial}, processing \textbf{100K+ insurance applications monthly} — reducing manual review workload by \textbf{40\%} and accelerating policy processing turnaround by \textbf{3x}.
+    \item Built a \textbf{production-grade LLM-powered clinical intelligence system} for \textbf{CVS Health} using \textbf{RAG pipelines with FAISS and Pinecone} as vector stores — enabling real-time semantic search across \textbf{500K+ medical documents} and improving information retrieval accuracy by \textbf{35\%} over traditional keyword-based systems.
+    \item Designed and executed \textbf{structured ML experimentation frameworks} for model architecture comparison, feature selection, and threshold calibration across imbalanced datasets — improving recall on critical risk classes by \textbf{15\%} while maintaining balanced precision, directly impacting \textbf{\$2M+ in underwriting decisions} monthly.
+    \item Implemented \textbf{production-ready model explainability pipelines} using \textbf{SHAP-based feature importance and class-wise error diagnostics}. Applied advanced prompt engineering techniques (chain-of-thought, few-shot prompting, system prompt design) to optimize LLM outputs for domain-specific risk intelligence tasks — achieving \textbf{28\% reduction in hallucinated or irrelevant responses} and improving downstream decision accuracy.
+\end{itemize}
+
+\vspace{2pt}
+\noindent
+\textbf{Asics Technologies} \hfill \textbf{June 2022 -- December 2023} \\
+\textit{Machine Learning Engineer $\cdot$ Client: Sigmoid} \hfill Hyderabad, India
+\begin{itemize}
+    \item Developed and deployed \textbf{production-grade supervised ML models (Logistic Regression, Random Forest, XGBoost, LightGBM)} for \textbf{Sigmoid's enterprise analytics platform} — achieving a \textbf{12\% improvement in F1-score} through systematic feature engineering, hyperparameter tuning, and ensemble strategies, directly improving client decision-making accuracy across \textbf{multi-million dollar data pipelines}.
+    \item Architected \textbf{scalable end-to-end ML pipelines} handling \textbf{50K+ records} spanning data ingestion, preprocessing (encoding, scaling, missing value imputation), feature transformation, and model validation — \textbf{reducing data processing time by 45\%} and enabling faster model iteration cycles for Sigmoid's enterprise clients.
+    \item Established \textbf{automated CI/CD workflows} using Git and Python scripts to trigger model retraining, evaluation, and \textbf{FastAPI endpoint redeployment} on data drift detection or scheduled intervals — \textbf{reducing time-to-production by 50\%} and completely eliminating manual intervention in the model release cycle.
+    \item Engineered \textbf{comprehensive model evaluation frameworks} using Precision, Recall, F1-score, ROC-AUC, MAE, and RMSE with \textbf{k-fold cross-validation strategies} — ensuring robust generalization across unseen data and \textbf{reducing model failure rate in production by 30\%}.
+\end{itemize}
+
+\vspace{2pt}
+\noindent
+\textbf{Octagen Software Solutions Pvt. Ltd.} \hfill \textbf{May 2022 -- June 2022} \\
+\textit{Machine Learning Intern} \hfill Hyderabad, India
+\begin{itemize}
+    \item Built a \textbf{production-style AI-based Air Quality Index (AQI) forecasting system} using \textbf{Scikit-learn and Pandas} on historical pollutant datasets (SO$_2$, NO$_2$, RSPM, SPM) — achieving \textbf{R$^2$ = 0.97} predictive accuracy and enabling real-time region-level AQI forecasting across states, cities, and bounded geographic areas.
+    \item Delivered a \textbf{complete end-to-end ML pipeline} spanning data ingestion, feature engineering, regression modeling, residual analysis, and validation — establishing a \textbf{reusable pipeline framework} that reduced future data processing and model setup time by \textbf{60\%}.
+\end{itemize}
+
+% ----------------- Education -----------------
+\section*{EDUCATION}
+\textbf{Yeshiva University} \hfill \textbf{New York, USA} \\
+\textit{Master of Science in Artificial Intelligence \quad | \quad GPA: 3.81 / 4.0}
+
+% ----------------- Research Projects -----------------
+\section*{RESEARCH PROJECTS}
+
+\noindent\textbf{Dose Diffusion Prediction in Radiology} \hfill \textit{\textbf{PyTorch, Diffusion Models, CT-Mamba, Medical AI}}
+\begin{itemize}
+    \item Co-authored a \textbf{published research paper} comparing \textbf{5 deep learning architectures} (DoseDiff, CT-Mamba, U-Net, ResNet, Hybrid) for radiation dose prediction on the \textbf{Open-KBP benchmark} across 50 patients and 670 training epochs.
+    \item Designed the \textbf{CT-Mamba architecture} — achieving the \textbf{best results} across all models with \textbf{Dose Score 1.56} and \textbf{DVH Score 0.71}, outperforming DoseDiff by \textbf{55\%} on dose prediction accuracy.
+    \item Engineered a \textbf{multi-stage preprocessing pipeline} (CSV $\rightarrow$ NIfTI $\rightarrow$ PSDM $\rightarrow$ 2D slices) maintaining full anatomical fidelity across all model architectures.
+\end{itemize}
+
+\vspace{1pt}
+\noindent\textbf{Research Paper Summarizer \& Reviewer} \hfill \textit{\textbf{Transformers, FastAPI, Hugging Face, LangChain}}
+\begin{itemize}
+    \item Built a \textbf{production-grade LLM summarization system} reducing manual summarization time by \textbf{60\%} through automated chunking, structured generation, and transformer-based seq2seq models.
+    \item Designed \textbf{FastAPI REST APIs} to accept PDFs or raw text and return domain-specific summaries with \textbf{paraphrasing and tone-control} for technical and non-technical audiences.
+\end{itemize}
+
+\vspace{1pt}
+\noindent\textbf{Semantic Segmentation of Brain Tumors in MRI Scans} \hfill \textit{\textbf{Deep Learning, U-Net, PyTorch}}
+\begin{itemize}
+    \item Developed \textbf{U-Net encoder-decoder architectures} for pixel-level brain tumor segmentation — achieving a \textbf{Dice score of 0.88} across core, enhancing, and whole tumor subregions.
+    \item Built full preprocessing and training pipeline (normalization, augmentation, slice extraction) — reducing manual annotation effort by \textbf{45\%}.
+\end{itemize}
+
+\vspace{1pt}
+\noindent\textbf{CNN for Canine Cardiac Image Classification} \hfill \textit{\textbf{Deep Learning, Medical Imaging, PyTorch}}
+\begin{itemize}
+    \item Designed and benchmarked \textbf{CNN architectures} for canine cardiac image classification — achieving \textbf{92\% diagnostic accuracy} on annotated medical datasets.
+    \item Conducted \textbf{ablation studies} across architectures and preprocessing strategies — improving model generalization by \textbf{18\%} over baseline.
+\end{itemize}
+
+% ----------------- Skills -----------------
+\section*{SKILLS}
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{Programming}             & Python, SQL, C, C++, Java, JavaScript, HTML, CSS \\
+\textbf{AI / ML}                 & Machine Learning, Deep Learning, Generative AI, LLMs, Model Fine-tuning (LoRA, PEFT), RAG Pipelines, NLP, Computer Vision, Prompt Engineering, BERT, GANs, GPT, Transformer Architectures, RLHF, NLTK \\
+\textbf{Libraries \& Frameworks} & PyTorch, TensorFlow, Scikit-learn, Hugging Face, LangChain/LangGraph, XGBoost, LightGBM, Word2Vec, GloVe, ELMo, CI/CD, Kubernetes \\
+\textbf{Tools / Analytics}       & Docker, FastAPI, MLflow, Git, Jupyter, VS Code, OpenAI API, RestAPI, Model Monitoring, Data Drift Detection, Model Versioning \\
+\textbf{Cloud \& Databases}      & AWS, Azure OpenAI, Google Vertex AI, Databricks, MySQL, PostgreSQL, MongoDB, Pinecone, FAISS, ChromaDB, ETL Pipelines, Flask \\
+\end{tabularx}
+
+% ----------------- Certifications -----------------
+\section*{CERTIFICATIONS}
+\begin{itemize}
+    \item AWS Certified Machine Learning Engineer -- Associate
+    \item Hugging Face --- Transformers \& NLP
+    \item SQL --- HackerRank
+    \item Problem Solving --- HackerRank
+\end{itemize}
+
+\end{document}
